@@ -5,108 +5,131 @@
  */
 package de.citec.etradis.core;
 
+import de.citec.etradis.finder.ImageFinder;
+import static de.citec.etradis.core.Constants.URI_MEDIA;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author elahi
  */
-public class Main {
+public class Main implements Constants {
 
-    public static String URI_MEDIA = "https://commons.wikimedia.org/";
-
-    public static void main(String args[]) {
-        String url_wikipedia = "https://en.wikipedia.org/wiki/Berlin";
-        LinkedHashSet<String> imageList = findFirstLink(URI_MEDIA, url_wikipedia);
-         Set<String> results = new HashSet<String>();
-        Map<String, Set<String>> urlResults = new TreeMap<String, Set<String>>();
-        for (String imageUri : imageList) {
-            Set<String> sortedImageList = findExactLink(imageUri);
-           
-            for (String sortedImageUri : sortedImageList) {
-                if (ignoreLink(sortedImageUri, ".jpg") < 2) {
-                    results.add(sortedImageUri);
-                }
+    public static void main(String args[]) throws IOException {
+        String urlDir = "/media/elahi/My Passport/etradis/dbpedia/wikipedia/";
+        File[] files = new File("/media/elahi/My Passport/etradis/dbpedia/wikipedia/").listFiles();
+        String processFileList="fileProcessList.txt";
+        String str="";
+        Integer fileIndex=0,fileLimit=1000, urlLimit=-1;
+        for (File file : files) {
+            fileIndex=fileIndex+1;
+            String outputFile = null;
+            if (file.getName().contains("wikipedia-links_lang=en.ttl.a")) {
+                System.out.println(file.getName());
+                outputFile = file.getAbsolutePath() + file.getName().replace(".ttl", ".txt");
             }
-        }
-        urlResults.put(url_wikipedia, results);
-        
-        System.out.println(url_wikipedia+" "+results.size());
-
-    }
-
-    private static LinkedHashSet<String> findFirstLink(String URI_MEDIA, String url) {
-        Document document;
-        LinkedHashSet<String> imageList = new LinkedHashSet<String>();
-
-        try {
-            document = Jsoup.connect(url).get();
-            Elements links = document.select("a[href]");
-            for (Element link : links) {
-                if (link.toString().contains(".jpg")
-                        || link.toString().contains(".png")
-                        || link.toString().contains(".gif")) {
-                    String linkStr = link.attr("href");
-                    if (linkStr.endsWith(".jpg")) {
-                        imageList.add(URI_MEDIA + linkStr);
-                    }
-
+            else 
+                continue;
+            Map<String, String> results = getLinks(file, urlLimit);
+            String fileName=file.getName()+"\n";
+            str+=fileName;
+            String content = "";
+            for (String uri_dbpedia : results.keySet()) {
+                String url_wikipedia = results.get(uri_dbpedia);
+                ImageFinder ImageFinder = new ImageFinder(url_wikipedia);
+               
+                //System.out.println(url_wikipedia + " " + ImageFinder.getUrlResults().size());
+                if(!ImageFinder.getUrlResults().isEmpty()){
+                     String line = uri_dbpedia + url_wikipedia + ImageFinder.getUrlResults() + "\n";
+                content += line;
+                System.out.println( ImageFinder.getUrlResults());
                 }
+                
             }
+             FileUtils.stringToFile(content, outputFile);
+             FileUtils.stringToFile(str, urlDir+processFileList);
+             if(fileIndex>fileLimit)
+                 break;
 
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        return imageList;
-    }
-
-    private static Set<String> findExactLink(String url) {
-        Document document;
-        Set<String> imageList = new HashSet<String>();
-
-        try {
-
-            document = Jsoup.connect(url).get();
-            Elements links = document.select("a[href]");
-            for (Element link : links) {
-                if (link.toString().contains(".jpg")
-                        || link.toString().contains(".png")
-                        || link.toString().contains(".gif")) {
-                    String linkStr = link.attr("href");
-                    if (linkStr.startsWith("https://upload.wikimedia.org/") && linkStr.endsWith(".jpg")) {
-                        imageList.add(linkStr);
-                    }
-
-                }
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return imageList;
-    }
-    
-    private static Integer ignoreLink(String string, String patternStr) {
-        Pattern pattern = Pattern.compile(patternStr);
-        Matcher matcher = pattern.matcher(string);
-        int count = 0;
-        while (matcher.find()) {
-            count++;
-        }
-        return count;
+        //test test...
+        /*String url_wikipedia = "https://en.wikipedia.org/wiki/Berlin";
+        ImageFinder ImageFinder = new ImageFinder(url_wikipedia);
+        System.out.println(url_wikipedia + " " + ImageFinder.getUrlResults().size());
+        System.out.println(url_wikipedia + " " + ImageFinder.getUrlResults());*/
     }
 
     
+    public static Map<String,String> getLinks(File file, Integer numberOfTriples) {
+        Map<String,String> results=new TreeMap<String,String>();
+        BufferedReader reader;
+        String line = "";
+        Integer lineNumber = 0;
+
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            line = reader.readLine();
+            while (line != null) {
+                line = reader.readLine();
+                lineNumber = lineNumber + 1;
+                String subject = null;
+                String object = null, property = null;
+                if (line != null) {
+                    line = line.replace("<", "\n" + "<");
+                    line = line.replace(">", ">" + "\n");
+                    line = line.replace("\"", "\n" + "\"");
+                    String[] lines = line.split(System.getProperty("line.separator"));
+
+                    Integer index = 0;
+                    for (String value : lines) {
+                        index = index + 1;
+                        if (index == 2) {
+                            subject =  value;
+                        } else if (index == 6) {
+                            object = value;
+                        }
+                        else if (index == 4) {
+                            property =  value;
+                        }
+                    }
+                  
+                    
+                    if (lineNumber == -1)
+                         ; 
+                    else if (lineNumber == numberOfTriples) {
+                        break;
+                    }                  
+
+                    if(subject!=null&&object!=null){
+                        ;
+                    }
+                    else continue;
+                    
+                   if( subject.contains("__")||object.contains("__"))
+                       continue;
+                   
+                   subject = subject.replace("<", "").replace(">", "");
+                   object = object.replace("<", "").replace(">", "");
+                   
+                   results.put(subject,object);
+
+                }
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return results;
+
+    }
+
 
 }
