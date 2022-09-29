@@ -1,0 +1,5 @@
+app/input/
+app/inter/
+app/results/
+target/
+.Dockerfile.swp
