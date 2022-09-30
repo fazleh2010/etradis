@@ -18,6 +18,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import static java.lang.System.exit;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -29,12 +30,13 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.io.FileUtils;
 
 /**
  *
  * @author elahi
  */
-public class FileUtils {
+public class FileFolderUtils {
 
     public static void stringToFile(String content, String fileName)
             throws IOException {
@@ -58,11 +60,13 @@ public class FileUtils {
             fileAsString = sb.toString();
             //System.out.println("Contents : " + fileAsString);
         } catch (Exception ex) {
-            Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileFolderUtils.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return fileAsString;
     }
+    
+   
     
     public static Set<Integer> fileToSet(String fileName) {
          InputStream is; Set<Integer> ids=new TreeSet<Integer>();
@@ -77,10 +81,25 @@ public class FileUtils {
                 ids.add(id);
             }
         } catch (Exception ex) {
-            Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileFolderUtils.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return ids;
+    }
+    
+    public static void appendToFile(File file, String line) throws IOException {
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(new BufferedWriter(new FileWriter(file, true)));
+            out.println(line);
+            System.out.println(line);
+        } catch (IOException e) {
+            System.err.println(e);
+        } finally {
+            if (out != null) {
+                out.close();
+            }
+        }
     }
 
     public static List<File> getFiles(String fileDir, String category, String extension) {
@@ -151,7 +170,7 @@ public class FileUtils {
             writer.write(str);
             writer.close();
         } catch (IOException ex) {
-            Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileFolderUtils.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

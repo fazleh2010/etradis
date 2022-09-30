@@ -30,6 +30,10 @@ public class ImageFinder {
     private Map<String, Set<String>> urlResults = new TreeMap<String, Set<String>>();
 
     public ImageFinder(String url_wikipedia) {
+        findImages(url_wikipedia);
+    }
+
+    private void findImages(String url_wikipedia) {
         LinkedHashSet<String> imageList = ImageFinder.findFirstLink(URI_MEDIA, url_wikipedia);
         Set<String> results = new HashSet<String>();
         for (String imageUri : imageList) {
@@ -41,8 +45,9 @@ public class ImageFinder {
                 }
             }
         }
-        if(!results.isEmpty())
-         this.urlResults.put(url_wikipedia, results);
+        if (!results.isEmpty()) {
+            this.urlResults.put(url_wikipedia, results);
+        }
     }
 
     public static LinkedHashSet<String> findFirstLink(String URI_MEDIA, String url) {

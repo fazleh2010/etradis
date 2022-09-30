@@ -1,0 +1,7 @@
+SELECT DISTINCT ?superclass ?subclass 
+ WHERE 
+   {
+     ?subclass                a  owl:Class    .
+     ?subclass  rdfs:subClassOf  ?superclass
+   } 
+ORDER BY  ?superclass ?subclass

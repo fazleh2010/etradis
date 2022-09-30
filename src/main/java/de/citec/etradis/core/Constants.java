@@ -12,10 +12,17 @@ package de.citec.etradis.core;
 public interface Constants {
 
     public static String URI_MEDIA = "https://commons.wikimedia.org/";
-    public static String URI_UPLOAD ="https://upload.wikimedia.org/";
+    public static String URI_UPLOAD = "https://upload.wikimedia.org/";
     public static String JPG = ".jpg";
     public static String PNG = ".png";
     public static String GIF = ".gif";
     public static String HREF = ".href";
+    public static String WIKIPEDIA_DIR = "/media/elahi/My Passport/etradis/dbpedia/wikipedia/";
+    public static String PROCESS_FILE_LIST = "fileProcessList.txt";
+    public static String DBPEDIA_DIR = "/media/elahi/My Passport/etradis/dbpedia/";
+    public static String CLASS_ENTITIES_FILE = "instance-types_lang=en_specific.ttl";
+    public static String CLASS_DIR = DBPEDIA_DIR + "classDir/";
+    public static String FIND_IMAGE="FIND_IMAGE";
+    public static String FIND_ENTITIES_OF_CLASS="FIND_ENTITIES_OF_CLASS";
 
 }
