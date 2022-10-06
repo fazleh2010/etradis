@@ -38,7 +38,7 @@ import org.apache.commons.io.FileUtils;
  */
 public class FileFolderUtils {
 
-    public static void stringToFile(String content, String fileName)
+    public static void stringToFile(String content, File fileName)
             throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
         writer.write(content);
@@ -68,17 +68,24 @@ public class FileFolderUtils {
     
    
     
-    public static Set<Integer> fileToSet(String fileName) {
-         InputStream is; Set<Integer> ids=new TreeSet<Integer>();
+    public static Set<String> fileToSet(File file, Integer limit) {
+        InputStream is;
+        Set<String> ids = new TreeSet<String>();
+        Integer index = 0;
         try {
-            is = new FileInputStream(fileName);
+            is = new FileInputStream(file);
             BufferedReader buf = new BufferedReader(new InputStreamReader(is));
             String line = buf.readLine();
             StringBuilder sb = new StringBuilder();
-            while (line != null) {
-                line = buf.readLine();
-                Integer id=Integer.parseInt(line);
-                ids.add(id);
+            while ((line = buf.readLine()) != null) {
+                ids.add(line);
+
+                if (limit == -1)
+                    ; else if (index > limit) {
+                    break;
+                }
+                index = index + 1;
+
             }
         } catch (Exception ex) {
             Logger.getLogger(FileFolderUtils.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,7 +93,7 @@ public class FileFolderUtils {
 
         return ids;
     }
-    
+     
     public static void appendToFile(File file, String line) throws IOException {
         PrintWriter out = null;
         try {

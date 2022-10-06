@@ -5,21 +5,28 @@
  */
 package de.citec.etradis.core;
 
+import static de.citec.etradis.core.Constants.CLASS_DIR;
+import static de.citec.etradis.core.Constants.DBPEDIA_DIR;
 import de.citec.etradis.finder.ImageFinder;
 import static de.citec.etradis.core.Constants.URI_MEDIA;
+import de.citec.etradis.core.sparql.PrepareSparqlQuery;
+import de.citec.etradis.core.sparql.SparqlQuery;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static de.citec.etradis.core.Constants.FIND_ENTITIES_FROM_CLASS;
 
 /**
  *
@@ -29,20 +36,106 @@ public class Main implements Constants {
 
     public static void main(String args[]) throws IOException {
         Set<String> menus = new HashSet<String>();
+        String fileName = WIKIPEDIA_DIR + SELECTED_ENTITIES;
+        System.out.println(fileName);
         //menus.add(FIND_IMAGE);
-        menus.add(FIND_ENTITIES_OF_CLASS);
+        //menus.add(FIND_ENTITIES_OF_CLASS);
+        //menus.add(SELECTED_ENTITIES);
+        //menus.add(FIND_IMAGE_SELECTED_ENTITIES);
+        String task = FIND_IMAGE_FOR_SELECTED_ENTITIES;
 
-        if (menus.contains(FIND_IMAGE)) {
-            Integer fileIndex = 0, fileLimit = 10000, urlLimit = -1;
-            String str = "";
-            File[] files = new File(WIKIPEDIA_DIR).listFiles();
-            imageFinds(files, fileIndex, urlLimit, str, fileLimit);
+        Tasks(task);
+    }
+
+    private static void Tasks(String key) throws IOException {
+        
+        switch (key) {
+            case FIND_IMAGE_FROM_WIKIPEDIA: {
+                Integer fileIndex = 0, fileLimit = 10000, urlLimit = -1;
+                String str = "";
+                File[] files = new File(WIKIPEDIA_DIR).listFiles();
+                imageFinds(files, fileIndex, urlLimit, str, fileLimit);
+                break;
+            }
+            case FIND_ENTITIES_FROM_CLASS: {
+                Integer urlLimit = -1;
+                List<File> files = new ArrayList<File>();
+                files.add(new File(DBPEDIA_DIR + CLASS_ENTITIES_TRANSITIVE_FILE));
+                //files.add(new File(DBPEDIA_DIR + CLASS_ENTITIES_SPECIFIC_FILE_));
+                for (File classFile : files) {
+                    findEntitiesOfClass(CLASS_DIR, classFile, urlLimit);
+                }
+                break;
+            }
+            case SELECTED_ENTITIES: {
+                File[] files = new File(CLASS_DIR).listFiles();
+                Set<File> sortedFiles = new TreeSet<File>();
+                for (File file : files) {
+                    sortedFiles.add(new File(CLASS_DIR + file.getName()));
+                }
+                for (File sortedFile : sortedFiles) {
+                    Integer urlLimit = 50000;
+                    System.out.println(sortedFile);
+                    Set<String> entities = FileFolderUtils.fileToSet(sortedFile, urlLimit);
+                    for (String entity : entities) {
+                        FileFolderUtils.appendToFile(new File(RESULT_DIR + sortedFile.getName()), entity);
+                    }
+
+                }
+                break;
+            }
+            case FIND_IMAGE_FOR_SELECTED_ENTITIES: {
+                Integer urlLimit = 2, fileLimit = 2;
+                Integer index = 0;
+                File[] files = new File(RESULT_DIR).listFiles();
+                Set<File> sortedFiles = new TreeSet<File>();
+                for (File file : files) {
+                    sortedFiles.add(new File(RESULT_DIR + file.getName()));
+                }
+                for (File sortedFile : sortedFiles) {
+                    String fileName = sortedFile.getName().replace(".txt", "Image.txt");
+                    File outputFile = new File(IMAGE_DIR + fileName);
+                    String content = imageFindFromFile(sortedFile, urlLimit);
+                    System.out.println(content);
+                    FileFolderUtils.stringToFile(content, outputFile);
+                    if (fileLimit == -1) {
+                        ;
+                    } else if (index > fileLimit) {
+                        break;
+                    }
+                    index = index + 1;
+                }
+                break;
+            }
+
+            default:
+                System.out.println("no menu is found!!");
         }
-        if (menus.contains(FIND_ENTITIES_OF_CLASS)) {
-            Integer urlLimit = -1;
-            File classFile = new File(DBPEDIA_DIR + CLASS_ENTITIES_FILE);
-            Set<String> entities = findEntitiesOfClass(CLASS_DIR, classFile, urlLimit);
+
+    }
+    
+    private static String imageFindFromFile(File file, Integer urlLimit) throws IOException {
+        String content = "";
+
+        Set<String> results = FileFolderUtils.fileToSet(file, -1);
+        Integer index = 0;
+        for (String uri_dbpedia : results) {
+            String url_wikipedia = findWikipediaLink(uri_dbpedia);
+            ImageFinder ImageFinder = new ImageFinder(url_wikipedia);
+
+            if (!ImageFinder.getUrlResults().isEmpty()) {
+                String line = uri_dbpedia + url_wikipedia + ImageFinder.getUrlResults() + "\n";
+                content += line;
+            }
+            if (urlLimit == -1) {
+                ;
+            } else if (index > urlLimit) {
+                break;
+            }
+            index = index + 1;
+
         }
+        return content;
     }
 
     private static void imageFinds(File[] files, Integer fileIndex, Integer urlLimit, String str, Integer fileLimit) throws IOException {
@@ -71,8 +164,8 @@ public class Main implements Constants {
                 }
 
             }
-            FileFolderUtils.stringToFile(content, outputFile);
-            FileFolderUtils.stringToFile(str, WIKIPEDIA_DIR + PROCESS_FILE_LIST);
+            FileFolderUtils.stringToFile(content, new File(outputFile));
+            FileFolderUtils.stringToFile(str, new File(WIKIPEDIA_DIR + PROCESS_FILE_LIST));
             if (fileIndex > fileLimit) {
                 break;
             }
@@ -148,7 +241,7 @@ public class Main implements Constants {
 
     }
 
-    public static Set<String> findEntitiesOfClass(String outputDir, File inputFile, Integer numberOfTriples) {
+    public static void findEntitiesOfClass(String outputDir, File inputFile, Integer numberOfTriples) {
         Set<String> results = new TreeSet<String>();
         BufferedReader reader;
         String line = "";
@@ -208,7 +301,6 @@ public class Main implements Constants {
             e.printStackTrace();
         }
 
-        return results;
 
     }
 
@@ -223,6 +315,56 @@ public class Main implements Constants {
     private static String cleanCharacter(String object) {
         object = object.replace("<", "").replace(">", "");
         return object;
+    }
+    
+     /*if (menus.contains(FIND_IMAGE)) {
+        Integer fileIndex = 0, fileLimit = 10000, urlLimit = -1;
+        String str = "";
+        File[] files = new File(WIKIPEDIA_DIR).listFiles();
+        imageFinds(files, fileIndex, urlLimit, str, fileLimit);
+        }
+        if (menus.contains(FIND_ENTITIES_OF_CLASS)) {
+        Integer urlLimit = -1;
+        List<File> files=new ArrayList<File>();
+        files.add(new File(DBPEDIA_DIR + CLASS_ENTITIES_TRANSITIVE_FILE));
+        //files.add(new File(DBPEDIA_DIR + CLASS_ENTITIES_SPECIFIC_FILE_));
+        for(File classFile:files){
+        findEntitiesOfClass(CLASS_DIR, classFile, urlLimit);
+        }
+        
+        }
+        if (menus.contains(SELECTED_ENTITIES)) {
+        File[] files = new File(CLASS_DIR).listFiles();
+        Set<File> sortedFiles = new TreeSet<File>();
+        for (File file : files) {
+        sortedFiles.add(new File(CLASS_DIR + file.getName()));
+        }
+        for (File sortedFile : sortedFiles) {
+        Integer urlLimit =-1;
+        System.out.println(sortedFile);
+        Set<String> entities =FileFolderUtils.fileToSet(sortedFile,urlLimit);
+        System.out.println(entities.size());
+        for(String entity:entities){
+        FileFolderUtils.appendToFile(new File(RESULT_DIR+SELECTED_ENTITIES_FILE), entity);
+        }
+        
+        }
+        }
+        if (menus.contains(FIND_IMAGE_SELECTED_ENTITIES)) {
+        Integer fileIndex = 0, fileLimit = 10000, urlLimit = -1;
+        String str = "";
+        File file = new File(RESULT_DIR + SELECTED_ENTITIES_FILE);
+        File outputFile = new File(RESULT_DIR + SELECTED_ENTITIES_FILE.replace(".txt", "Image.txt"));
+        String content = imageFindFromFile(file, fileIndex, urlLimit, str, fileLimit);
+        FileFolderUtils.stringToFile(content, outputFile);
+        }*/
+        
+       
+        
+        //SparqlQuery sparqlQuery =new SparqlQuery(sparqlQuery);
+
+    private static String findWikipediaLink(String uri_dbpedia) {
+        return "https://en.wikipedia.org/wiki/Berlin";
     }
 
 }

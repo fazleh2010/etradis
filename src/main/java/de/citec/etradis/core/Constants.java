@@ -20,9 +20,14 @@ public interface Constants {
     public static String WIKIPEDIA_DIR = "/media/elahi/My Passport/etradis/dbpedia/wikipedia/";
     public static String PROCESS_FILE_LIST = "fileProcessList.txt";
     public static String DBPEDIA_DIR = "/media/elahi/My Passport/etradis/dbpedia/";
-    public static String CLASS_ENTITIES_FILE = "instance-types_lang=en_specific.ttl";
-    public static String CLASS_DIR = DBPEDIA_DIR + "classDir/";
-    public static String FIND_IMAGE="FIND_IMAGE";
-    public static String FIND_ENTITIES_OF_CLASS="FIND_ENTITIES_OF_CLASS";
+    public static String CLASS_ENTITIES_SPECIFIC_FILE_ = "instance-types_lang=en_specific.ttl";
+    public static String CLASS_ENTITIES_TRANSITIVE_FILE = "instance-types_lang=en_transitive.ttl";
 
+    public static String CLASS_DIR = DBPEDIA_DIR + "classDir/";
+    public static String FIND_IMAGE_FROM_WIKIPEDIA = "FIND_IMAGE";
+    public static String FIND_ENTITIES_FROM_CLASS = "FIND_ENTITIES_OF_CLASS";
+    public static String SELECTED_ENTITIES = "SELECTED_ENTITIES";
+    public static String FIND_IMAGE_FOR_SELECTED_ENTITIES="FIND_IMAGE_SELECTED_ENTITIES";
+    public static String RESULT_DIR = "/media/elahi/My Passport/etradis/dbpedia/results/";
+    public static String IMAGE_DIR =RESULT_DIR+"images/";
 }
