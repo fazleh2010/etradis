@@ -13,6 +13,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.jsoup.HttpStatusException;
@@ -27,7 +28,9 @@ import org.jsoup.select.Elements;
  */
 public class ImageFinder {
 
-    private Map<String, Set<String>> urlResults = new TreeMap<String, Set<String>>();
+    private LinkedHashSet<String> imagesUris = new LinkedHashSet<String>();
+    private LinkedHashSet<String> audioUris = new LinkedHashSet<String>();
+    private LinkedHashSet<String> vedioUris = new LinkedHashSet<String>();
 
     public ImageFinder(String url_wikipedia) {
         findImages(url_wikipedia);
@@ -35,18 +38,13 @@ public class ImageFinder {
 
     private void findImages(String url_wikipedia) {
         LinkedHashSet<String> imageList = ImageFinder.findFirstLink(URI_MEDIA, url_wikipedia);
-        Set<String> results = new HashSet<String>();
         for (String imageUri : imageList) {
-            Set<String> sortedImageList = ImageFinder.findExactLink(imageUri);
-
-            for (String sortedImageUri : sortedImageList) {
+            this.findLinks(imageUri);
+            /*for (String sortedImageUri : sortedImageList) {
                 if (ImageFinder.ignoreLink(sortedImageUri, ".jpg") < 2) {
-                    results.add(sortedImageUri);
+                    imagesUris.add(sortedImageUri);
                 }
-            }
-        }
-        if (!results.isEmpty()) {
-            this.urlResults.put(url_wikipedia, results);
+            }*/
         }
     }
 
@@ -75,9 +73,8 @@ public class ImageFinder {
         return imageList;
     }
 
-    public static Set<String> findExactLink(String url) {
+    public void findLinks(String url) {
         Document document;
-        Set<String> imageList = new HashSet<String>();
 
         try {
 
@@ -89,17 +86,25 @@ public class ImageFinder {
                         || link.toString().contains(".gif")) {
                     String linkStr = link.attr("href");
                     if (linkStr.startsWith(URI_UPLOAD) && linkStr.endsWith(".jpg")) {
-                        imageList.add(linkStr);
+                        imagesUris.add(linkStr);
                     }
 
                 }
+
+                /*if (link.toString().contains(".webm")
+                        || link.toString().contains(".wmv")
+                        || link.toString().contains(".mov")) {
+                    String linkStr = link.attr("href");
+                   
+                        vedioUris.add(linkStr);
+                }*/
             }
 
         } catch (Exception e) {
             //e.printStackTrace();
-            return new HashSet<String>();
+            return;
         }
-        return imageList;
+        return;
     }
 
     public static Integer ignoreLink(String string, String patternStr) {
@@ -112,8 +117,23 @@ public class ImageFinder {
         return count;
     }
 
-    public Map<String, Set<String>> getUrlResults() {
-        return urlResults;
+    public Set<String> getImagesUris() {
+        return imagesUris;
     }
+
+    public Set<String> getAudioUris() {
+        return audioUris;
+    }
+
+    public Set<String> getVedioUris() {
+        return vedioUris;
+    }
+
+    /*public static void main(String[] args) {
+        String uri = "https://en.wikipedia.org/wiki/Berlin";
+        ImageFinder imageFinder = new ImageFinder(uri);
+        System.out.println("images:" + imageFinder.getImagesUris());
+        System.out.println("vedios:" + imageFinder.getVedioUris().size());
+    }*/
 
 }

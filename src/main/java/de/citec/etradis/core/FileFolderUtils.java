@@ -8,6 +8,7 @@ package de.citec.etradis.core;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import de.citec.etradis.utils.Cleaner;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -47,7 +48,8 @@ public class FileFolderUtils {
     }
 
     public static String fileToString(String fileName) {
-        InputStream is;String fileAsString=null;
+        InputStream is;
+        String fileAsString = null;
         try {
             is = new FileInputStream(fileName);
             BufferedReader buf = new BufferedReader(new InputStreamReader(is));
@@ -65,9 +67,7 @@ public class FileFolderUtils {
 
         return fileAsString;
     }
-    
-   
-    
+
     public static Set<String> fileToSet(File file, Integer limit) {
         InputStream is;
         Set<String> ids = new TreeSet<String>();
@@ -93,7 +93,62 @@ public class FileFolderUtils {
 
         return ids;
     }
-     
+
+    public static Map<String,String> fileToMap(File file, Integer limit) {
+        InputStream is;
+        Map<String,String> ids = new TreeMap<String,String>();
+        Integer index = 0;
+        try {
+            is = new FileInputStream(file);
+            BufferedReader buf = new BufferedReader(new InputStreamReader(is));
+            String line = buf.readLine();
+            StringBuilder sb = new StringBuilder();
+            while ((line = buf.readLine()) != null) {
+                if (line.contains(" ")) {
+                    String[] info = line.split(" ");
+                    //info[0] = Cleaner.cleanUrl(info[0]);
+                    //info[2] = Cleaner.cleanUrl(info[2]);
+                    ids.put(info[0],info[2]);
+
+                }
+
+                if (limit == -1)
+                    ; else if (index > limit) {
+                    break;
+                }
+                index = index + 1;
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(FileFolderUtils.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return ids;
+    }
+    
+    public static Map<String,String> fileToMapPLus(File file, Integer limit) {
+        InputStream is;
+        Map<String,String> ids = new TreeMap<String,String>();
+        Integer index = 0;
+        try {
+            is = new FileInputStream(file);
+            BufferedReader buf = new BufferedReader(new InputStreamReader(is));
+            String line = buf.readLine();
+            StringBuilder sb = new StringBuilder();
+            while ((line = buf.readLine()) != null) {
+                //if (line.contains("+")) {
+                    String[] info = line.split("\\+");
+                    ids.put(info[0],info[1]);
+                    System.out.println(info[0]+" "+info[1]);
+                //}
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(FileFolderUtils.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return ids;
+    }
+
     public static void appendToFile(File file, String line) throws IOException {
         PrintWriter out = null;
         try {
@@ -164,12 +219,11 @@ public class FileFolderUtils {
         }
 
     }*/
-    
-     public static void listToFiles(List<String> list, String fileName) {
+    public static void listToFiles(List<String> list, String fileName) {
         String str = "";
         for (String element : list) {
-                String line = element + "\n";
-                str += line;
+            String line = element + "\n";
+            str += line;
 
         }
         try {
@@ -181,9 +235,5 @@ public class FileFolderUtils {
         }
 
     }
-     
-     
-
-    
 
 }
