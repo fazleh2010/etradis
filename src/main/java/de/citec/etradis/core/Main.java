@@ -138,24 +138,30 @@ public class Main implements Constants {
             }
             case FIND_IMAGE_FOR_SELECTED_ENTITIES: {
                 Integer fileNumber = 0;
-                String dir=Initilizer.getResourceWikipediaLinkDir();
-                List<File> files=Initilizer.sortedFile(dir);
+                String dir = Initilizer.getResourceWikipediaLinkDir();
+                List<File> files = Initilizer.sortedFile(dir);
+
                 for (File file : files) {
                     fileNumber = fileNumber + 1;
                     Map<String, String> results = FileFolderUtils.fileToMapPLus(file, -1);
                     Integer lineIndex = 0;
                     for (String uri_dbpedia : results.keySet()) {
                         String url_wikipedia = results.get(uri_dbpedia);
-                        String line = findImage(uri_dbpedia, url_wikipedia,lineIndex);
-                        if (!line.isEmpty()) {
-                            lineIndex = lineIndex + 1;
-                            File outputFile = new File(dir + file.getName() + "_" + "image" + ".txt");
-                            FileFolderUtils.appendToFile(outputFile, line);
-                            System.out.println("fileName::"+file.getName() + " current::" + fileNumber + " totalFile::" + files.size() + " lineIndex::" + lineIndex + " totalLine:" + results.size());
+                        try {
+                            String line = findImage(uri_dbpedia, url_wikipedia, lineIndex);
+                            if (!line.isEmpty()) {
+                                lineIndex = lineIndex + 1;
+                                File outputFile = new File(dir + file.getName() + "_" + "image" + ".txt");
+                                FileFolderUtils.appendToFile(outputFile, line);
+                                System.out.println("fileName::" + file.getName() + " current::" + fileNumber + " totalFile::" + files.size() + " lineIndex::" + lineIndex + " totalLine:" + results.size());
 
+                            }
+                        } catch (Exception ex) {
+                           continue;
                         }
                     }
                 }
+
                 break;
             }
 

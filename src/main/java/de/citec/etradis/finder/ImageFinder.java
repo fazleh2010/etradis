@@ -68,7 +68,7 @@ public class ImageFinder {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+           return  new LinkedHashSet<String>();
         }
         return imageList;
     }
