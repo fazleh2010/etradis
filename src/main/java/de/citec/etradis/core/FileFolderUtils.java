@@ -154,7 +154,6 @@ public class FileFolderUtils {
         try {
             out = new PrintWriter(new BufferedWriter(new FileWriter(file, true)));
             out.println(line);
-            System.out.println(line);
         } catch (IOException e) {
             System.err.println(e);
         } finally {

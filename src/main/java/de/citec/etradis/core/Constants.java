@@ -17,6 +17,7 @@ public interface Constants {
 
     public static String URI_MEDIA = "https://commons.wikimedia.org/";
     public static String URI_UPLOAD = "https://upload.wikimedia.org/";
+    public static String URI_WIKIPEDIA="http://en.wikipedia.org/wiki/";
     public static String JPG = ".jpg";
     public static String PNG = ".png";
     public static String GIF = ".gif";
@@ -38,10 +39,12 @@ public interface Constants {
     public static String RESULT_DIR = "/media/elahi/My Passport/etradis/dbpedia/results/";
     public static String INPUT_DIR = "input/";
     public static String OUTPUT_DIR = "output/";
-    public static String IMAGE_DIR =RESULT_DIR+"images/";
-    public static Set<String> firstLetter = new HashSet<String>(Arrays.asList("A","B","C","D","E","F","G","H","I"
+    public static String IMAGE_DIR ="images/";
+    public static String SELECTED_DIR ="selected/";
+    public static Set<String> FIRST_LETTER_CHECK = new HashSet<String>(Arrays.asList("A","B","C","D","E","F","G","H","I"
                                                                               ,"J","K","L","M","N","O","P","Q","R"
-                                                                              ,"S","T","U","V","W","X","Y","Z","0"
+                                                                              ,"S","T","U","V","W","X","Y","Z"));
+    public static Set<String> FIRST_LETTER_DIGIT = new HashSet<String>(Arrays.asList("0"
                                                                               ,"1","2","3","4","5","6","7","8","9"
                                                                               ,"(","%","_"));
 

@@ -70,22 +70,108 @@ public class Main implements Constants {
                 break;
             }
             case SELECTED_ENTITIES: {
-                File[] files = new File(CLASS_DIR).listFiles();
+                List<File> files = Initilizer.sortedFile(CLASS_DIR);
+                Integer fileIndex=0;
+                for (File file : files) {
+                    System.out.println(file.getName());
+                    fileIndex=fileIndex+1;
+
+                    Integer urlLimit = 50000, lineIndex = 0;
+                    /*if (!file.getName().contains(".txt")) {
+                        continue;
+                    }*/
+                    Set<String> entities = FileFolderUtils.fileToSet(file, urlLimit);
+                    for (String uri_dbpedia : entities) {
+                        lineIndex=lineIndex+1;
+                        File outputFile = new File(CLASS_DIR + SELECTED_DIR + file.getName());
+                        FileFolderUtils.appendToFile(outputFile, uri_dbpedia);
+                        System.out.println(file.getName()+" fileNo:"+fileIndex+" totalFile:"+files.size()+" lineNo:"+lineIndex+" Limit:"+urlLimit);
+                    }
+                }
+
+                
+                /*File[] files = new File(CLASS_DIR).listFiles();
                 Set<File> sortedFiles = new TreeSet<File>();
                 for (File file : files) {
                     sortedFiles.add(new File(CLASS_DIR + file.getName()));
                 }
+                Integer fileIndex=0;
                 for (File sortedFile : sortedFiles) {
-                    Integer urlLimit = 50000;
+                    fileIndex=fileIndex+1;
+                    Integer urlLimit = 50000, lineIndex =0;
+                    if(!sortedFile.getName().contains(".txt"))
+                       continue;
                     Set<String> entities = FileFolderUtils.fileToSet(sortedFile, urlLimit);
-                    for (String entity : entities) {
-                        FileFolderUtils.appendToFile(new File(RESULT_DIR + INPUT_DIR + sortedFile.getName()), entity);
+                    for (String uri_dbpedia : entities) {
+                         String firstLetter=findFirstWord(uri_dbpedia);
+                         lineIndex = lineIndex + 1;
+                        if (!FIRST_LETTER_CHECK.contains(firstLetter)) {
+                            continue;
+                        }
+                        
+                        String url_wikipedia= findWikipediaUri(uri_dbpedia);
+                         
+                         try {
+                            String line = findImage(uri_dbpedia, url_wikipedia, lineIndex);
+                            if (!line.isEmpty()) {
+                                
+                                File outputFile = new File(CLASS_DIR + "images/" + sortedFile.getName() + ".txt");
+                                FileFolderUtils.appendToFile(outputFile,line);
+                                System.out.println("currentFile::"+fileIndex+" totalFile::" + sortedFiles.size()+" fileName:" +sortedFile.getName()+ " currentLine::" + lineIndex+" totalLInes::"+urlLimit);
+                                System.out.println( " line::" + line);
+
+                            }
+                        } catch (Exception ex) {
+                           continue;
+                        }
+                        //FileFolderUtils.appendToFile(new File(RESULT_DIR + INPUT_DIR + sortedFile.getName()), entity);
+                    }
+
+                }*/
+                break;
+            }
+            case FIND_IMAGE_FOR_SELECTED_ENTITIES: {
+                List<File> sortedFiles = Initilizer.sortedFile(CLASS_DIR + SELECTED_DIR);
+                Integer fileIndex = 0, total = 0;
+
+                for (File sortedFile : sortedFiles) {
+                    if(!sortedFile.getName().startsWith("B")){
+                        continue;
+                    }
+                    fileIndex = fileIndex + 1;
+                    Integer urlLimit = -1, lineIndex = 0;
+                    if (!sortedFile.getName().contains(".txt")) {
+                        continue;
+                    }
+                    Set<String> entities = FileFolderUtils.fileToSet(sortedFile, urlLimit);
+                    for (String uri_dbpedia : entities) {
+                        String firstLetter = findFirstWord(uri_dbpedia);
+                        lineIndex = lineIndex + 1;
+                        if (!FIRST_LETTER_CHECK.contains(firstLetter)) {
+                            continue;
+                        }
+
+                        String url_wikipedia = findWikipediaUri(uri_dbpedia);
+
+                        try {
+                            String line = findImage(uri_dbpedia, url_wikipedia, lineIndex);
+                            if (!line.isEmpty()) {
+                                total = total + 1;
+                                File outputFile = new File(CLASS_DIR + IMAGE_DIR + sortedFile.getName());
+                                FileFolderUtils.appendToFile(outputFile, line);
+                                System.out.println("currentFile::" + fileIndex + " totalFile::" + sortedFiles.size() + " fileName:" + sortedFile.getName() + " currentLine::" + lineIndex + " totalLInes::" + urlLimit);
+                                System.out.println(" line::" + line);
+
+                            }
+                        } catch (Exception ex) {
+                            continue;
+                        }
                     }
 
                 }
+                System.out.println("Completed!! total:" + total);
                 break;
             }
-            
             case WIKILINK_FILE_SPLIT: {
                 File[] files = new File(WIKIPEDIA_DIR).listFiles();
                 for (File file : files) {
@@ -95,7 +181,7 @@ public class Main implements Constants {
                         uri_dbpedia = Cleaner.cleanUrlBracket(uri_dbpedia);
                         uri_wikipedia = Cleaner.cleanUrlBracket(uri_wikipedia);
                         String firstCharacter = findFirstWord(uri_dbpedia);
-                        if (firstLetter.contains(firstCharacter)) {
+                        if (FIRST_LETTER_CHECK.contains(firstCharacter)) {
                             String line = uri_dbpedia + "+" + uri_wikipedia;
                             File outputFile = new File("../dbpedia/output/" + firstCharacter + ".ttl");
                             FileFolderUtils.appendToFile(outputFile, line);
@@ -120,7 +206,7 @@ public class Main implements Constants {
                     for (String uri_dbpedia : results) {
                         String firstCharacter = findFirstWord(uri_dbpedia);
 
-                        if (firstLetter.contains(firstCharacter)) {
+                        if (FIRST_LETTER_CHECK.contains(firstCharacter)) {
                             String uri_dbpedia_clean = Cleaner.cleanUrl(uri_dbpedia);
                             Map<String, String> checked = wikidataMap.get(firstCharacter);
 
@@ -136,7 +222,7 @@ public class Main implements Constants {
                 }
                 break;
             }
-            case FIND_IMAGE_FOR_SELECTED_ENTITIES: {
+            /*case FIND_IMAGE_FOR_SELECTED_ENTITIES: {
                 Integer fileNumber = 0;
                 String dir = Initilizer.getResourceWikipediaLinkDir();
                 List<File> files = Initilizer.sortedFile(dir);
@@ -163,7 +249,7 @@ public class Main implements Constants {
                 }
 
                 break;
-            }
+            }*/
 
             default:
                 System.out.println("no menu is found!!");
@@ -458,4 +544,8 @@ public class Main implements Constants {
                     }
                     index = index + 1;
                 }*/
+
+    private static String findWikipediaUri(String entity) {
+        return entity.replace("http://dbpedia.org/resource/", "http://en.wikipedia.org/wiki/");
+    }
 }
