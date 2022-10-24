@@ -5,6 +5,12 @@
  */
 package de.citec.etradis.utils;
 
+import de.citec.etradis.core.FileFolderUtils;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  *
  * @author elahi
@@ -24,6 +30,24 @@ public class Cleaner {
       private static String getSearchFileName(String firstCharacter) {
         return firstCharacter + ".ttl";
     }
+      
+    public static String cleanPikleFiles(String rawString) {
+        byte[] bytes = rawString.getBytes(StandardCharsets.US_ASCII);
+        String utf8EncodedString = new String(bytes, StandardCharsets.US_ASCII);
+        String[] info = utf8EncodedString.split("\\?");
+        return info[0];
 
+    }
+    
+     public static String findFirstWord(String uri_dbpedia) {
+        uri_dbpedia = uri_dbpedia.replace("<", "").replace(">", "");
+        uri_dbpedia = uri_dbpedia.replace("http://dbpedia.org/resource/", "");
+        if (uri_dbpedia.length() > 1) {
+            return "" + uri_dbpedia.charAt(0);
+        }
+        return "" + '_';
+    }
+    
+   
     
 }

@@ -35,6 +35,11 @@ public interface Constants {
     public static String SELECTED_ENTITIES = "SELECTED_ENTITIES";
     public static String FIND_IMAGE_FOR_SELECTED_ENTITIES="FIND_IMAGE_SELECTED_ENTITIES";
     public static String MERGE_IMAGE_WIKILINK="MERGE_CLASS_AND_WIKILINK";
+    public static String MAKE_FILE_FOR_GRAPH="MAKE_FILE_FOR_GRAPH";
+    public static String FIND_IMAGE_PKLE_FILE="FIND_IMAGE_PKLE_FILE";
+    public static String FindImageGivenUri="FindImageGivenUri";
+    public static String ConvertToJson="convertToJson";
+
     
     public static String RESULT_DIR = "/media/elahi/My Passport/etradis/dbpedia/results/";
     public static String INPUT_DIR = "input/";
@@ -47,5 +52,17 @@ public interface Constants {
     public static Set<String> FIRST_LETTER_DIGIT = new HashSet<String>(Arrays.asList("0"
                                                                               ,"1","2","3","4","5","6","7","8","9"
                                                                               ,"(","%","_"));
+    
+    public static String VEDIO="vedio";
+    public static String IMAGE="image";
+    
+    public static String UPLOAD_LINK="//upload.wikimedia.org/";
+    public static String BRACKET_OPEN="[";
+    public static String BRACKET_CLOSE="]";
+    public static String NEWLINE="\n";
+    public static String VEDIO_OGG=".ogg";
+    public static String AUDIO_JPG= ".jpg";
+    public static String AUDIO_PNG=  ".png";
+    public static String HTTPS= "https:";
 
 }

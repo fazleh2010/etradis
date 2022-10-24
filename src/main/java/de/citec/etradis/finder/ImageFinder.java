@@ -8,6 +8,7 @@ package de.citec.etradis.finder;
 import static de.citec.etradis.core.Constants.URI_MEDIA;
 import static de.citec.etradis.core.Constants.URI_UPLOAD;
 import java.io.IOException;
+import static java.lang.System.exit;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -29,8 +30,6 @@ import org.jsoup.select.Elements;
 public class ImageFinder {
 
     private LinkedHashSet<String> imagesUris = new LinkedHashSet<String>();
-    private LinkedHashSet<String> audioUris = new LinkedHashSet<String>();
-    private LinkedHashSet<String> vedioUris = new LinkedHashSet<String>();
 
     public ImageFinder(String url_wikipedia) {
         findImages(url_wikipedia);
@@ -117,23 +116,14 @@ public class ImageFinder {
         return count;
     }
 
-    public Set<String> getImagesUris() {
+    public LinkedHashSet<String> getImagesUris() {
         return imagesUris;
     }
 
-    public Set<String> getAudioUris() {
-        return audioUris;
-    }
-
-    public Set<String> getVedioUris() {
-        return vedioUris;
-    }
-
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         String uri = "https://en.wikipedia.org/wiki/Berlin";
         ImageFinder imageFinder = new ImageFinder(uri);
         System.out.println("images:" + imageFinder.getImagesUris());
-        System.out.println("vedios:" + imageFinder.getVedioUris().size());
-    }*/
+    }
 
 }

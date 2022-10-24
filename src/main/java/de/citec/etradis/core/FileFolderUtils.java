@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import de.citec.etradis.utils.Cleaner;
+import static de.citec.etradis.utils.Cleaner.cleanPikleFiles;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -67,6 +68,8 @@ public class FileFolderUtils {
 
         return fileAsString;
     }
+    
+   
 
     public static Set<String> fileToSet(File file, Integer limit) {
         InputStream is;
@@ -234,5 +237,46 @@ public class FileFolderUtils {
         }
 
     }
+    
+    public static Set<String> getLinesFromPikleFile(File file, String matchString) {
+        Set<String> results = new TreeSet<String>();
+        String content = fileToString(file.getAbsolutePath());
+        content = content.replace("http://", "\nhttp://");
+        String[] lines = content.split("\n");
+
+        for (String line : lines) {
+            if (!line.contains(matchString)) {
+                continue;
+            }
+            line = cleanPikleFiles(line);
+            results.add(line);
+
+        }
+
+        return results;
+    }
+
+    public static Set<String> fileToSet(String fileName) throws FileNotFoundException, IOException {
+        Set<String> set = new TreeSet<String>();
+        BufferedReader reader;
+        String line = "";
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
+            line = reader.readLine();
+            while (line != null) {
+                line = reader.readLine();
+                if (line != null) {
+                    line = line.strip().trim();
+                    set.add(line);
+                }
+
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return set;
+    }
+
 
 }
