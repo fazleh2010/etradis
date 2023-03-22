@@ -6,6 +6,7 @@
 package de.citec.etradis.core;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.opencsv.CSVWriter;
 import static de.citec.etradis.core.Constants.CLASS_DIR;
 import static de.citec.etradis.core.Constants.DBPEDIA_DIR;
 import de.citec.etradis.finder.ImageFinder;
@@ -33,11 +34,15 @@ import de.citec.etradis.finder.Resources;
 import de.citec.etradis.finder.VedioFinder;
 import de.citec.etradis.utils.Cleaner;
 import de.citec.etradis.utils.CommandLine;
+import de.citec.etradis.utils.CsvFile;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import static java.lang.System.exit;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import org.apache.logging.log4j.core.util.FileUtils;
 
 /**
  *
@@ -53,8 +58,9 @@ public class Main implements Constants {
         //menus.add(FIND_IMAGE_SELECTED_ENTITIES);
         //menus.add(FILE_SPLIT);
         String task = FIND_IMAGE_PKLE_FILE;
-        task = FindImageGivenUri;
+        //task = FindImageGivenUri;
         //task =ConvertToJson;
+        task = FIND_IMAGE_GIVEN_URI_LIST;
 
         Tasks(task);
     }
@@ -62,6 +68,37 @@ public class Main implements Constants {
     private static void Tasks(String key) throws IOException {
 
         switch (key) {
+            case FIND_IMAGE_GIVEN_URI_LIST: {
+                String uriFile = "src/main/resources/uri.txt";
+                String outputFileName="src/main/resources/image.csv";
+                String[] header = new String[3];
+                
+                LinkedHashMap<String,String> uris = FileFolderUtils.getUris(uriFile);
+                CSVWriter csvWriterQuestions = new CSVWriter(new FileWriter(outputFileName, true));
+                csvWriterQuestions.writeNext(new String[]{"DBpediaUri","Image","All_Images"});
+                Integer limit=uris.size(); Integer index=0;
+                for (String url_dbpedia : uris.keySet()) {
+                    String[]row=new String[3];
+                    String url_wikipedia=uris.get(url_dbpedia);
+                    ImageFinder imageFinder = new ImageFinder(url_wikipedia);
+                    if (!imageFinder.getImagesUris().isEmpty()) {
+                        row[0]=url_dbpedia;
+                        row[1]=imageFinder.getImagesUris().iterator().next();
+                        row[2]=imageFinder.getImagesUris().toString();
+                    }
+                    else{
+                        row[0]=url_dbpedia;
+                        row[1]="X";
+                        row[2]="X";    
+                    }
+                    System.out.println("limit::"+limit+" index::"+index+" "+row[0]+" "+url_wikipedia+" "+row[1]+" "+row[2]);
+                    csvWriterQuestions.writeNext(row);
+                    index=index+1;                    
+                }
+                csvWriterQuestions.close();
+                //https://en.wikipedia.org/wiki/LGBT_movements
+                break;
+            }
             case FIND_IMAGE_FROM_WIKIPEDIA: {
                 Integer fileIndex = 0, fileLimit = 10000, urlLimit = -1;
                 String str = "";
@@ -235,16 +272,16 @@ public class Main implements Constants {
                 String dir = "/media/elahi/My Passport/etradis/dbpedia/connections/usecases/";
                 File file = new File(dir);
                 File[] sortedFiles = file.listFiles();
-                Integer limit=5;
-                Map<String,List<Resource>> resources = new TreeMap<String,List<Resource>>();
+                Integer limit = 5;
+                Map<String, List<Resource>> resources = new TreeMap<String, List<Resource>>();
                 for (File sortedFile : sortedFiles) {
-                    resources = findImageVedioUseCases(sortedFile,limit,resources);
+                    resources = findImageVedioUseCases(sortedFile, limit, resources);
                 }
                 for (String firstLetter : resources.keySet()) {
                     List<Resource> list = resources.get(firstLetter);
-                    String fileName = firstLetter+".json";
-                    System.out.println(fileName+" "+list.size());
-                    Resources.writeObjectJson(dir, fileName,"usecases", list);
+                    String fileName = firstLetter + ".json";
+                    System.out.println(fileName + " " + list.size());
+                    Resources.writeObjectJson(dir, fileName, "usecases", list);
                 }
 
             }
@@ -253,7 +290,7 @@ public class Main implements Constants {
                 String dir = "/media/elahi/My Passport/etradis/dbpedia/connections/usecases/";
                 dir = "/media/elahi/My Passport/etradis/dbpedia/classDir/images/json/";
                 String givenUri = "http://dbpedia.org/resource/Alec_Coryton";
-                givenUri ="http://dbpedia.org/resource/Acolon";
+                givenUri = "http://dbpedia.org/resource/Acolon";
 
                 Resource resource = findDetailOfResource(dir, givenUri);
                 if (resource != null) {
@@ -286,30 +323,29 @@ public class Main implements Constants {
 
     }
 
-    private static Resource findDetailOfResource(String dir,String givenUri) throws IOException {
-       
+    private static Resource findDetailOfResource(String dir, String givenUri) throws IOException {
+
         File file = new File(dir);
         File[] sortedFiles = file.listFiles();
-        String firstLetterGiven=Cleaner.findFirstWord(givenUri);
-        
+        String firstLetterGiven = Cleaner.findFirstWord(givenUri);
+
         for (File sortedFile : sortedFiles) {
-            if (sortedFile.getName().contains(".json")&&sortedFile.getName().contains(firstLetterGiven)) {
+            if (sortedFile.getName().contains(".json") && sortedFile.getName().contains(firstLetterGiven)) {
                 ObjectMapper mapper = new ObjectMapper();
-                Resources resources = mapper.readValue(new File(dir+sortedFile.getName()), Resources.class);
-                List<Resource> resourceList=resources.getDetail();
-                
-                for(Resource resource:resourceList){
-                    if(resource.getUri_dbpedia().contains(givenUri)){
+                Resources resources = mapper.readValue(new File(dir + sortedFile.getName()), Resources.class);
+                List<Resource> resourceList = resources.getDetail();
+
+                for (Resource resource : resourceList) {
+                    if (resource.getUri_dbpedia().contains(givenUri)) {
                         return resource;
                     }
-                    
-                    
+
                 }
             }
         }
         return null;
     }
-    
+
     private static void findImageVedioUrisBig(String dir, String type) {
         List<Resource> resources = new ArrayList<Resource>();
 
@@ -364,7 +400,7 @@ public class Main implements Constants {
         }
     }
 
-    private static Map<String,List<Resource>> findImageVedioUseCases(File sortedFile, Integer limit, Map<String,List<Resource>> resources) {
+    private static Map<String, List<Resource>> findImageVedioUseCases(File sortedFile, Integer limit, Map<String, List<Resource>> resources) {
         Integer fileIndex = 0, lineIndex = 0, urlLimit = 0;
         Set<String> results = FileFolderUtils.getLinesFromPikleFile(sortedFile, "http://dbpedia.org/resource/");
         urlLimit = results.size();
@@ -374,8 +410,8 @@ public class Main implements Constants {
             String url_wikipedia = findWikipediaUri(uri_dbpedia);
             Resource resource = new Resource(uri_dbpedia, url_wikipedia);
             String firstLetter = Cleaner.findFirstWord(uri_dbpedia);
-            List<Resource> list=new ArrayList<Resource>();
-            
+            List<Resource> list = new ArrayList<Resource>();
+
             if (resources.containsKey(firstLetter)) {
                 list = resources.get(firstLetter);
                 list.add(resource);
@@ -389,7 +425,6 @@ public class Main implements Constants {
             /*if ((!resource.getImageUris().isEmpty()) || (!resource.getVedioUris().isEmpty())) {
                 resources.add(resource);
             }*/
-
         }
         return resources;
     }
@@ -681,8 +716,6 @@ public class Main implements Constants {
         FileFolderUtils.stringToFile(content, outputFile);
         }*/
     //SparqlQuery sparqlQuery =new SparqlQuery(sparqlQuery);
-   
-
     /*try {
                                 if(CommandLine.execute(uri_dbpedia, searchFileName, tempFileName)){
                                     
@@ -711,9 +744,5 @@ public class Main implements Constants {
     private static String findWikipediaUri(String entity) {
         return entity.replace("http://dbpedia.org/resource/", "http://en.wikipedia.org/wiki/");
     }
-
-  
-
-   
 
 }

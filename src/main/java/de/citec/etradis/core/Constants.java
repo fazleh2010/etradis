@@ -37,6 +37,7 @@ public interface Constants {
     public static String MERGE_IMAGE_WIKILINK="MERGE_CLASS_AND_WIKILINK";
     public static String MAKE_FILE_FOR_GRAPH="MAKE_FILE_FOR_GRAPH";
     public static String FIND_IMAGE_PKLE_FILE="FIND_IMAGE_PKLE_FILE";
+     public static String FIND_IMAGE_GIVEN_URI_LIST="FIND_IMAGE_GIVEN_URI_LIST";
     public static String FindImageGivenUri="FindImageGivenUri";
     public static String ConvertToJson="convertToJson";
 

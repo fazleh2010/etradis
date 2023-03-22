@@ -25,6 +25,7 @@ import static java.lang.System.exit;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -263,13 +264,9 @@ public class FileFolderUtils {
         try {
             reader = new BufferedReader(new FileReader(fileName));
             line = reader.readLine();
-            while (line != null) {
-                line = reader.readLine();
-                if (line != null) {
-                    line = line.strip().trim();
-                    set.add(line);
-                }
-
+            while ((line = reader.readLine()) != null) {
+                line = line.stripLeading().stripTrailing().strip().trim();
+                set.add(line);
             }
             reader.close();
         } catch (IOException e) {
@@ -277,6 +274,27 @@ public class FileFolderUtils {
         }
         return set;
     }
-
+    
+     public static  LinkedHashMap<String,String> getUris(String fileName) throws FileNotFoundException, IOException {
+        LinkedHashMap<String,String> set = new LinkedHashMap<String,String>();
+        BufferedReader reader;
+        String line = "";
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
+            line = reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                line = line.stripLeading().stripTrailing().strip().trim();
+                line=line.replace("\",", "");
+                line=line.replace("\"", "");
+                String debpediaUri=line;
+                String wikipediaUri=line.replace("http://dbpedia.org/resource/", "https://en.wikipedia.org/wiki/");
+                set.put(debpediaUri,wikipediaUri);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return set;
+    }
 
 }
