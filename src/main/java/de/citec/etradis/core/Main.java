@@ -70,12 +70,12 @@ public class Main implements Constants {
         switch (key) {
             case FIND_IMAGE_GIVEN_URI_LIST: {
                 String uriFile = "src/main/resources/uri.txt";
-                String outputFileName="src/main/resources/image.csv";
+                String outputFileName="/home/elahi/A-etardis/resources/image.csv";
                 String[] header = new String[3];
                 
                 LinkedHashMap<String,String> uris = FileFolderUtils.getUris(uriFile);
                 CSVWriter csvWriterQuestions = new CSVWriter(new FileWriter(outputFileName, true));
-                csvWriterQuestions.writeNext(new String[]{"DBpediaUri","Image","All_Images"});
+                //csvWriterQuestions.writeNext(new String[]{"DBpediaUri","Image","AllImages"});
                 Integer limit=uris.size(); Integer index=0;
                 for (String url_dbpedia : uris.keySet()) {
                     String[]row=new String[3];
@@ -91,7 +91,7 @@ public class Main implements Constants {
                         row[1]="X";
                         row[2]="X";    
                     }
-                    System.out.println("limit::"+limit+" index::"+index+" "+row[0]+" "+url_wikipedia+" "+row[1]+" "+row[2]);
+                    System.out.println("limit::"+limit+" index::"+index+" "+row[0]+" "+url_wikipedia+" "+row[1]+" "+imageFinder.getImagesUris().size());
                     csvWriterQuestions.writeNext(row);
                     index=index+1;                    
                 }
