@@ -5,6 +5,7 @@
  */
 package de.citec.etradis.core.sparql;
 
+import de.citec.etradis.core.DBPediaHandler.DBpediaHelper;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -45,12 +46,14 @@ public class SparqlQuery {
     public static String QUESTION_MARK = "?";
     private String resultSparql = null;
     private String command = null;
+    private List<String> uris=new ArrayList<String>();
 
     private String type = null;
     private List<Binding> bindingList = new ArrayList<Binding>();
     private Boolean online = false;
 
     public SparqlQuery(String sparqlQuery) {
+        endpoint = "https://dbpedia.org/sparql";
         this.resultSparql = executeSparqlQuery(sparqlQuery);
         this.parseResultBindingList(resultSparql);
     }
@@ -113,7 +116,7 @@ public class SparqlQuery {
     }
 
     private void parseResult(DocumentBuilder builder, String xmlStr) {
-
+       uris=new ArrayList<String>();
         try {
             Document document = builder.parse(new InputSource(new StringReader(
                     xmlStr)));
@@ -124,11 +127,12 @@ public class SparqlQuery {
                     Node childNode = childList.item(j);
                     if ("result".equals(childNode.getNodeName())) {
                         String answer = childList.item(j).getTextContent().trim();
-                        if (endpoint.contains("dbpedia") && type.contains(FIND_ANY_ANSWER) && answer.contains("--")) {
-                            continue;
-                        } else {
+                        //if (endpoint.contains("dbpedia") && type.contains(FIND_ANY_ANSWER) && answer.contains("--")) {
+                        //    continue;
+                        //} else {
                             this.objectOfProperty = childList.item(j).getTextContent().trim();
-                        }
+                            uris.add(this.objectOfProperty);
+                        //}
                     }
                 }
 
@@ -137,13 +141,11 @@ public class SparqlQuery {
         } catch (SAXException ex) {
             Logger.getLogger(SparqlQuery.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("no result after sparql query!" + ex.getMessage());
-            return;
         } catch (IOException ex) {
             Logger.getLogger(SparqlQuery.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("no result after sparql query!" + ex.getMessage());
-            return;
         }
-
+        
     }
 
     public String setSubjectLabelWikipedia(String entityUrl, String property, String language) {
@@ -341,5 +343,17 @@ SELECT DISTINCT ?uri WHERE {
         }
         return false;
     }
+
+    public List<String> getUris() {
+        return uris;
+    }
+    
+     public static void main(String args[]){
+         String sparqlSuperclass=DBpediaHelper.sparqlSuperclasses("http://dbpedia.org/resource/Hundred_Years'_War");
+         System.out.println(sparqlSuperclass);
+         SparqlQuery sparqlQuery=new SparqlQuery(sparqlSuperclass);
+         System.out.println(sparqlQuery.getUris());
+         
+     }
 
 }
