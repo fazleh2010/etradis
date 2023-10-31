@@ -31,15 +31,28 @@ public interface Constants {
     public static String CLASS_DIR = DBPEDIA_DIR + "classDir/";
     public static String FIND_IMAGE_FROM_WIKIPEDIA = "FIND_IMAGE";
     public static String FIND_ENTITIES_FROM_CLASS = "FIND_ENTITIES_OF_CLASS";
-    public static String WIKILINK_FILE_SPLIT="FILE_SPLIT";
+    public static String WIKILINK_FILE_SPLIT = "FILE_SPLIT";
     public static String SELECTED_ENTITIES = "SELECTED_ENTITIES";
-    public static String FIND_IMAGE_FOR_SELECTED_ENTITIES="FIND_IMAGE_SELECTED_ENTITIES";
-    public static String MERGE_IMAGE_WIKILINK="MERGE_CLASS_AND_WIKILINK";
-    public static String MAKE_FILE_FOR_GRAPH="MAKE_FILE_FOR_GRAPH";
-    public static String FIND_IMAGE_PKLE_FILE="FIND_IMAGE_PKLE_FILE";
-     public static String FIND_IMAGE_GIVEN_URI_LIST="FIND_IMAGE_GIVEN_URI_LIST";
-    public static String FindImageGivenUri="FindImageGivenUri";
-    public static String ConvertToJson="convertToJson";
+    public static String FIND_IMAGE_FOR_SELECTED_ENTITIES = "FIND_IMAGE_SELECTED_ENTITIES";
+    public static String MERGE_IMAGE_WIKILINK = "MERGE_CLASS_AND_WIKILINK";
+    public static String MAKE_FILE_FOR_GRAPH = "MAKE_FILE_FOR_GRAPH";
+    public static String FIND_IMAGE_PKLE_FILE = "FIND_IMAGE_PKLE_FILE";
+    public static String FIND_IMAGE_GIVEN_URI_LIST = "FIND_IMAGE_GIVEN_URI_LIST";
+    public static String FIND_SUPER_CLASS_GIVEN_URI = "FIND_SUPER_CLASS_GIVEN_URI";
+    public static String FIND_SUPER_CLASS_GIVEN_URI_CSV="FIND_SUPER_CLASS_GIVEN_URI_CSV";
+    public static String FIND_WIKIDATA_RESULT_GIVEN_URI="FIND_WIKIDATA_RESULT_GIVEN_URI";
+    public static String FIND_SUPER_CLASS_ETRADIS_CATEGORY="FIND_ETRADIS_TYPE";
+    public static String FIND_OBJECTS= "FIND_OBJECTS";
+    public static String FIND_RESOURCE_ETRADIS_CATEGORY="FIND_RESOURCE_ETRADIS_TYPE_MAP";
+    public static String COUNT_ETRADIS_CATEGORY="COUNT_ETRADIS_CATEGORY";
+    public static String UPDATE_NEO4J_DATA="UPDATE_NEO4J_DATA";
+    public static String FIND_VALID_TURTLE="FIND_VALID_TURTLE";
+
+
+    public static String FIND_WIKIDATA_LOCATION="FIND_WIKIDATA_LOCATION";
+
+    public static String FindImageGivenUri = "FindImageGivenUri";
+    public static String ConvertToJson = "convertToJson";
 
     
     public static String RESULT_DIR = "/media/elahi/My Passport/etradis/dbpedia/results/";

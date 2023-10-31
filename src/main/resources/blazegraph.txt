@@ -1,0 +1,1513 @@
+[http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:14th_century_in_France, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:15th_century_in_France, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:Anglo-French_wars, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:Hundred_Years'_War, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:Wars_involving_Luxembourg, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:Wars_involving_Portugal, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:Wars_involving_Scotland, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:Wars_involving_the_Holy_Roman_Empire, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:Wars_of_succession_involving_the_states_and_peoples_of_Europe, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:Global_conflicts, http://purl.org/dc/terms/subject
+			
+			
+				http://dbpedia.org/resource/Category:Wars_of_the_Middle_Ages, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://1.droppdf.com/files/Pv5an/juliet-barker-conquest-the-english-kingdom-of-france-1.pdf, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://dl.lilibook.ir/2016/03/Encyclopedia-of-the-Hundred-Years-War.pdf, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://web.archive.org/web/20180612140335/http:/1.droppdf.com/files/Pv5an/juliet-barker-conquest-the-english-kingdom-of-france-1.pdf, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://web.archive.org/web/20180716235643/http:/dl.lilibook.ir/2016/03/Encyclopedia-of-the-Hundred-Years-War.pdf, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://droppdf.com/files/YYeb5/anne-curry-the-hundred-years-war-1337-1453-2002.pdf, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://www.oxforddnb.com/view/10.1093/ref:odnb/9780198614128.001.0001/odnb-9780198614128-e-8519, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.today/20180716023453/http:/www.oxforddnb.com/view/10.1093/ref:odnb/9780198614128.001.0001/odnb-9780198614128-e-8519, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://web.archive.org/web/20180927204153/http:/droppdf.com/files/YYeb5/anne-curry-the-hundred-years-war-1337-1453-2002.pdf, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.org/details/englandundernorm00bart_0, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.today/20180810174907/http:/www.oxforddnb.com/view/10.1093/ref:odnb/9780198614128.001.0001/odnb-9780198614128-e-12953, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://ehistory.osu.edu/osu/archive/hundredyearswar.cfm%3FCFID=12106913&CFTOKEN=48989585&jsessionid=463076a37003e50bfe0063343a5d3c64687b, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://orca.cf.ac.uk/77656/1/CHP%202008.1%20Jones.pdf, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://www.fordham.edu/halsall/source/froissart1.html, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://www.hyw.com, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://www.lebrelblanco.com/15.htm, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://www.luminarium.org/encyclopedia/roseswarcauses.htm, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://www.maisonstclaire.org/timeline/timeline.html, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://www.oxforddnb.com/view/10.1093/ref:odnb/9780198614128.001.0001/odnb-9780198614128-e-12952, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://www.oxforddnb.com/view/10.1093/ref:odnb/9780198614128.001.0001/odnb-9780198614128-e-12953, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				http://www.vlib.us/medieval/lectures/hundred_years_war.html, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.org/details/cu31924071236701, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.org/details/frenchpeasantry10000lero, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.org/details/frenchpeasantry10000lero/page/32, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.org/details/worldsofmedieval00back, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.org/stream/chroniclesfrois00macagoog%23page/n176/mode/2up, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.today/20121214234840/http:/ehistory.osu.edu/osu/archive/hundredyearswar.cfm%3FCFID=12106913&CFTOKEN=48989585&jsessionid=463076a37003e50bfe0063343a5d3c64687b, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://archive.today/20180810174843/http:/www.oxforddnb.com/view/10.1093/ref:odnb/9780198614128.001.0001/odnb-9780198614128-e-12952, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://books.google.com/books%3Fid=aGlLTOOeBG0C, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://books.google.com/books%3Fid=tW_eEVbVxpEC&pg=PA77, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://brego-weard.com/lib/ns/The_Fall_of_English_France_1449_53.pdf, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://web.archive.org/web/20130808035451/https:/brego-weard.com/lib/ns/The_Fall_of_English_France_1449_53.pdf, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://web.archive.org/web/20161010031147/http:/www.medievalsoldier.org/database/maindbsearch.php, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://web.archive.org/web/20170326171120/http:/www.maisonstclaire.org/timeline/timeline.html, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://www.jstor.org/stable/2590387, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://www.jstor.org/stable/2853350, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://www.questia.com/read/82238646, http://dbpedia.org/ontology/wikiPageExternalLink
+			
+			
+				https://www.questia.com/read/98573239, http://dbpedia.org/property/caption
+			
+			
+				Clockwise, from top left: the Battle of La Rochelle, the Battle of Agincourt, the Battle of Patay, and Joan of Arc at the Siege of Orléans, http://dbpedia.org/property/date, http://dbpedia.org/property/date
+			
+			
+				--05-24, http://dbpedia.org/property/imageSize
+			
+			
+				300, http://dbpedia.org/property/place
+			
+			
+				France, the Low Countries, Great Britain, Iberian Peninsula, http://dbpedia.org/property/territory
+			
+			
+				England loses all continental possessions except for the Pale of Calais., http://dbpedia.org/property/commander
+			
+			
+				* 20px Edward III 
+* 20px Richard II 
+* 20px Henry IV 
+* 20px Henry V 
+* 20px Henry VI, http://dbpedia.org/property/commander
+			
+			
+				* 20px Philip VI 
+* 20px John II 
+* 20px Charles V 
+* 20px Charles VI 
+* 20px Charles VII, http://dbpedia.org/property/partof
+			
+			
+				the Anglo-French Wars, http://dbpedia.org/property/combatant
+			
+			
+				* 20px France loyal to the House of Plantagenet
+* 20px Kingdom of England
+* 20px Burgundian State 
+* 20px Duchy of Brittany
+* 20px Kingdom of Portugal
+* 20px Kingdom of Navarre
+* 20px Ghent Rebels
+* 20px Papal States, http://dbpedia.org/property/combatant
+			
+			
+				* 20px France loyal to the House of Valois
+* 20px Burgundian State 
+* 20px Duchy of Brittany
+* 20px Kingdom of Scotland
+* 20px Crown of Castile
+*20px Welsh rebels
+* 20px Republic of Genoa
+* 20px Kingdom of Bohemia
+* 20px Crown of Aragon
+* 20px Avignon Papacy, http://dbpedia.org/property/conflict
+			
+			
+				Hundred Years' War, http://dbpedia.org/property/result, http://dbpedia.org/property/result
+			
+			
+				Agnatic primogeniture confirmed as the law of French royal succession, http://dbpedia.org/property/result
+			
+			
+				Decline of the House of Plantagenet and weakening of the English monarchy, leading to the Wars of the Roses, http://dbpedia.org/property/result
+			
+			
+				English claims to the French throne de facto abandoned, http://dbpedia.org/property/result
+			
+			
+				House of Valois retains the French throne, http://dbpedia.org/property/result
+			
+			
+				Rise of nationalistic identities in England and France, http://dbpedia.org/property/result
+			
+			
+				Victory for France’s House of Valois and their allies, http://dbpedia.org/property/result
+			
+			
+				http://dbpedia.org/resource/Chivalry, http://dbpedia.org/property/result
+			
+			
+				http://dbpedia.org/resource/Feudalism, http://dbpedia.org/property/result
+			
+			
+				http://dbpedia.org/resource/House_of_Valois, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/1383–1385_Portuguese_interregnum, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Agenais, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Alan_Sheridan, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Albret, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Alexander_Buchanan_(soldier), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Alliance, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Allier_(river), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Angevin_Empire, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Angevin_kings_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Anglo-French_Wars, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Anglo-Norman_language, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Anglo-Normans, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Armagnac_(party), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Armagnac–Burgundian_Civil_War, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Arnaud_Amanieu_d'Albret, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Arrière-ban, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Arthur_III,_Duke_of_Brittany, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Artillery, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Auld_Alliance, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Auvergne, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Avignon_Papacy, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Avignonet, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Baron, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Agincourt, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Baugé, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Bouvines, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Caen_(1346), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Castillon, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Cocherel, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Crécy, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Formigny, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Homildon_Hill, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_La_Rochelle, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Montiel, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Nájera, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Neville's_Cross, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Patay, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Poitiers, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Sluys, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Verneuil, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Battle_of_Waterloo, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Bernard_VII,_Count_of_Armagnac, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Berry,_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Bertrand_du_Guesclin, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Black_Death, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Black_Monday_(1360), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Black_Prince's_chevauchée_of_1355, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Black_Prince's_chevauchée_of_1356, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Blanche_of_France,_Duchess_of_Orléans, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Bordeaux, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Bourges, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Bruges, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Burgundian_State, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Burgundian_Wars, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Caen, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Calais, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Capetian_dynasty, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Capetian–Plantagenet_rivalry, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Captal_de_Buch, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Carcassonne, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Cardiff_University, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Castelnaudary, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Castilian_Civil_War, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:14th_century_in_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:15th_century_in_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:Anglo-French_wars, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:Hundred_Years'_War, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:Wars_involving_Luxembourg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:Wars_involving_Portugal, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:Wars_involving_Scotland, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:Wars_involving_the_Holy_Roman_Empire, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Catherine_of_Valois, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Ceasefire, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Charles_IV_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Charles,_Count_of_Valois, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Charles,_Duke_of_Brittany, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Charles_the_Bold, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Charles_V_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Charles_VI_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Charles_VII_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Chartres, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Chivalry, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Civil_war, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Compagnie_d'ordonnance, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Congress_of_Arras, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Conquest_of_Wales_by_Edward_I, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Cornwall, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Cotentin_Peninsula, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Count_of_Flanders, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Count_of_Poitiers, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Counts_and_dukes_of_Valois, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Counts_of_Clermont-en-Beauvaisis, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/County_of_Flanders, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Crisis_of_the_Late_Middle_Ages, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Crown_lands_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Crown_of_Aragon, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Crown_of_Castile, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Crusades, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Dauphin_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/David_II_of_Scotland, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/De_facto, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Despenser's_Crusade, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Duchy_of_Aquitaine, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Duchy_of_Brittany, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Duke_of_Aquitaine, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Duke_of_Burgundy, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Duke_of_Clarence, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Duke_of_Normandy, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Dynasty, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Dysentery, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Edward_II_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Edward_III_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Edward_IV_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Edward_of_Angoulême, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Edward_the_Black_Prince, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Eleanor_of_Aquitaine, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Empress_Matilda, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/English_Channel, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/English_claims_to_the_French_throne, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/English_longbow, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/English_nationalism, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Epidemic, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Estates_General_(France), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Famine, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Fernando_Sánchez_de_Tovar, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Feudalism, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Fief, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/France–United_Kingdom_relations, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Free_company, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/French_invasion_of_Normandy_(1202–1204), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/French_nationalism, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/French_people, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/French_Revolution, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Gascony, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Geoffrey_Plantagenet,_Count_of_Anjou, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Ghent, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Gilbert_Motier_de_La_Fayette, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Gilles_de_Rais, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Glorious_Revolution, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Glyndŵr_Rising, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Great_Britain, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Guyenne, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Hail, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Harelle, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Harfleur, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Harvard_University_Press, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Hearth_tax, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Heavy_cavalry, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Henry_Beaufort, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Henry_II_of_Castile, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Henry_II_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Henry_IV_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Henry_of_Grosmont,_1st_Duke_of_Lancaster, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Henry_Percy,_1st_Earl_of_Northumberland, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Henry_V_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Henry_VI_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Historian, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Historiography, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/History_of_Europe, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/History_of_Sussex, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/History_of_the_British_peerage, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Hobelar, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Holy_Land, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Homage_(feudal), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/House_of_Capet, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/House_of_Normandy, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/House_of_Percy, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/House_of_Plantagenet, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/House_of_Valois, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Hundred_Years'_War,_1337–1360, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Hundred_Years'_War,_1369–1389, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Hundred_Years'_War,_1415–1453, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Iberian_Peninsula, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Influence_of_French_on_English, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Internet_History_Sourcebooks_Project, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Invasion, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Investment_(military), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Isabella_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Jean_Bureau, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Jean_de_Dunois, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Jean_de_Venette, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Routiers, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Routledge, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Royal_Historical_Society, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Saintonge_War, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Salic_law, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Second_Hundred_Years'_War, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Second_War_of_Scottish_Independence, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Senlis, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Siege, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Siege_of_Calais_(1346–1347), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Siege_of_Calais_(1558), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Siege_of_Compiègne, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Siege_of_Orléans, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Siege_of_Paris_(1429), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Sluis, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Somme_(river), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Southampton, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Standing_army, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/State_capacity, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Suzerainty, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Thomas_Montagu,_4th_Earl_of_Salisbury, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Thomas_of_Woodstock,_Duke_of_Gloucester, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Throne_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Timeline_of_the_Hundred_Years'_War, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Tour_de_Nesle_affair, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Treaty_of_Brétigny, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Treaty_of_Corbeil_(1326), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Treaty_of_Guérande_(1365), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Treaty_of_Picquigny, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Treaty_of_Troyes, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Troyes, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Truce_of_Leulinghem, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/University_College_London, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/University_of_California_Press, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/University_of_Paris, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Vannes, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Vassal, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/War, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/War_of_Saint-Sardos, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/War_of_succession, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/War_of_the_Breton_Succession, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/War_of_the_Two_Peters, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Wars_of_the_Roses, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Wat_Tyler, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Western_Europe, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Western_Roman_Empire, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/William_the_Conqueror, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Woolsack, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Worcester,_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Yale_English_Monarchs_series, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Yale_University_Press, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Ypres, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Zwin, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:Wars_of_succession_involving_the_states_and_peoples_of_Europe, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:Global_conflicts, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Category:Wars_of_the_Middle_Ages, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_the_Kings_of_France_(France_Ancien).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Brasão_de_armas_do_reino_de_Portugal_(1385).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Hommage_d_Édouard_Ier_à_Philippe_le_Bel.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Map_France_1477-en.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Royal_Arms_of_England_(1340-1367).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Royal_Coat_of_Arms_of_the_Crown_of_Castile_(1284-1390).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Contemporaine_afb_jeanne_d_arc.png, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_Edmund_Crouchback,_Earl_of_Leicester_and_Lancaster.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_comte_fr_Valois.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_pays_fr_FranceAncien.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Guyenne_1328-en.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_France_(France_Moderne).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_John_of_Lancaster,_1st_Duke_of_Bedford.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_the_Duke_of_Burgundy_since_1430.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Assassinat_louis_orleans.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Royal_Arms_of_England_(1399-1603).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_Catherine_of_Valois.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_Isabella_of_France.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_John_of_Gaunt,_1st_Duke_of_Lancaster.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_Richard_of_York,_3rd_Duke_of_York.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_the_Prince_of_Wales_(Ancient).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_comte_fr_Longueville_(ancien).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_fr_Bourgogne.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_France_moderne.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_province_fr_Alençon.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:John_the_Fearless_Arms.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Philip_the_Good_Arms.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Royal_Arms_of_England_(1395-1399).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Royal_Arms_of_England_(1470-1471).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Royal_Arms_of_the_Kingdom_of_Scotland.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Siege_orleans.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Coat_of_Arms_of_Sir_John_Talbot,_7th_Baron_Talbot,_KG.png, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_Owain_Glyndŵr.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_du_Guesclin.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_ville_be_Gand_(Flandre-Orientale).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Royal_arms_of_Aragon.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Arms_of_Jean_III_de_Bretagne.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_JeanBureau.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Coat_of_arms_of_the_House_of_Luxembourg-Bohemia.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Edward_III_counting_the_dead_on_the_battlefield_of_Crécy.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Vigiles_du_roi_Charles_VII_32.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Coat_of_Arms_of_Sir_John_Fastolf,_KG.png, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:BattleofSluys.jpeg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:CoA_Pontifical_States_02.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Jean_de_Vienne, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Jean_III_de_Grailly, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Jean_Poton_de_Xaintrailles, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Joan_II_of_Navarre, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Joan_of_Arc, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John,_Duke_of_Berry, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John,_King_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_Fastolf, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_I_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_II_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_II,_Duke_of_Alençon, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_III,_Duke_of_Brittany, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_IV,_Duke_of_Brittany, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_of_Gaunt, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_of_Lancaster,_1st_Duke_of_Bedford, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_of_Montfort, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_Stewart,_Earl_of_Buchan, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_Talbot,_1st_Earl_of_Shrewsbury, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_the_Fearless, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/John_V,_Duke_of_Brittany, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Journal_of_Medieval_History, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Kingdom_of_Bohemia, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Kingdom_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Kingdom_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Kingdom_of_Great_Britain, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Kingdom_of_Navarre, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Kingdom_of_Portugal, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Kingdom_of_Scotland, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/La_Hire, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Late_Middle_Ages, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Leicester, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Limousin, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/List_of_Anglo-Welsh_wars, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/List_of_English_monarchs, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/List_of_French_monarchs, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/List_of_battles_involving_France_in_the_Middle_Ages, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Lord_Chancellor, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Lords_Appellant, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Louis_I_of_Anjou, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Louis_I,_Duke_of_Orléans, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Louis_X_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Louis_XI, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Louis_XVIII, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Low_Countries, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Macmillan_Publishers, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Meaux, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Medieval_demography, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Medieval_English_wool_trade, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Merciless_Parliament, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Middle_Ages, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Military_history_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Military_history_of_the_United_Kingdom, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Military_science, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Moulins,_Allier, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Nantes, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Narbonne, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/National_identity, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Nationalism, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Nemo_dat_quod_non_habet, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/New_Oxford_History_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Norman_Conquest, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Normandy, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Normans, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Ohio_State_University, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Owain_Glyndŵr, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Oxford_University_Press, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Pale_of_Calais, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Papal_States, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Patrilineality, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Peasants'_Revolt, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Penn_State_University_Press, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Periodization, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Peter_of_Castile, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Philip_II_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Philip_IV_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Philip_the_Bold, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Philip_the_Good, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Philip_V_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Philip_VI_of_France, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Pierre_Cauchon, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Piracy, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Plague_(disease), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Pope_Callixtus_III, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Primogeniture, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Prince_of_Wales, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Princeton_University_Press, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Privateer, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Proximity_of_blood, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Proxy_war, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Quercus_(publisher), http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Redoubt, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Regent, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Reims, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Republic_of_Genoa, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Richard_I_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Richard_II_of_England, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Richard_of_York,_3rd_Duke_of_York, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Robert_III_of_Artois, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Roger_Mortimer,_1st_Earl_of_March, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/Rouen, http://www.w3.org/2002/07/owl#sameAs
+			
+			
+				http://www.wikidata.org/entity/Q12551, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Du_Guesclin_Dinan.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Ofensivas_Tovar-Vienne_contra_Inglaterra_01.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:BlasonComtatVenaissin.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Apanages.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Hundred_years_war.gif, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Map-_France_at_the_Treaty_of_Bretigny.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Battle_of_Agincourt,_St._Alban's_Chronicle_by_Thomas_Walsingham.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_Gilles_de_Rais.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Bubonic_plague_map.PNG, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Black_Monday_hailstorm.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_Etienne_de_Vignolles_(La_Hire).svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_Jean_Poton_de_Xaintrailles.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Blason_Jeanne-d-Arc.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Charles_VII_by_Jean_Fouquet_1445_1450.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Clan_member_crest_badge_-_Clan_Carmichael.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Crécy_-_Grandes_Chroniques_de_France.jpg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Evolution_Coat_of_Arms_of_Navarre-3.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:Lombard_League_arms.svg, http://dbpedia.org/ontology/wikiPageWikiLink
+			
+			
+				http://dbpedia.org/resource/File:TimeLine100YearsWar_(cropped).png, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/Charles_V_of_France, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/Charles_VI_of_France, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/Charles_VII_of_France, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/Edward_III_of_England, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/Henry_IV_of_England, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/Henry_V_of_England, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/Henry_VI_of_England, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/John_II_of_France, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/Philip_VI_of_France, http://dbpedia.org/ontology/commander
+			
+			
+				http://dbpedia.org/resource/Richard_II_of_England, http://dbpedia.org/ontology/isPartOfMilitaryConflict
+			
+			
+				http://dbpedia.org/resource/Anglo-French_Wars, http://dbpedia.org/ontology/place
+			
+			
+				http://dbpedia.org/resource/Great_Britain, http://dbpedia.org/ontology/place
+			
+			
+				http://dbpedia.org/resource/Iberian_Peninsula, http://dbpedia.org/ontology/place
+			
+			
+				http://dbpedia.org/resource/Kingdom_of_France, http://dbpedia.org/ontology/place
+			
+			
+				http://dbpedia.org/resource/Low_Countries, http://dbpedia.org/ontology/territory
+			
+			
+				http://dbpedia.org/resource/Kingdom_of_England, http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+			
+			
+				http://dbpedia.org/ontology/MilitaryConflict, http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+			
+			
+				http://dbpedia.org/ontology/Event, http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+			
+			
+				http://dbpedia.org/ontology/SocietalEvent, http://www.w3.org/2000/01/rdf-schema#label
+			
+			
+				Hundred Years' War, http://www.w3.org/2000/01/rdf-schema#seeAlso
+			
+			
+				http://dbpedia.org/resource/Armagnac–Burgundian_Civil_War, http://www.w3.org/2000/01/rdf-schema#seeAlso
+			
+			
+				http://dbpedia.org/resource/Auld_Alliance, http://www.w3.org/2000/01/rdf-schema#seeAlso
+			
+			
+				http://dbpedia.org/resource/Castilian_Civil_War, http://www.w3.org/2000/01/rdf-schema#seeAlso
+			
+			
+				http://dbpedia.org/resource/Hundred_Years'_War, http://www.w3.org/2000/01/rdf-schema#seeAlso
+			
+			
+				http://dbpedia.org/resource/1345–1347]

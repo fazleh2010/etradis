@@ -97,6 +97,9 @@ public class FileFolderUtils {
 
         return ids;
     }
+    
+   
+    
 
     public static Map<String,String> fileToMap(File file, Integer limit) {
         InputStream is;
@@ -263,7 +266,6 @@ public class FileFolderUtils {
         String line = "";
         try {
             reader = new BufferedReader(new FileReader(fileName));
-            line = reader.readLine();
             while ((line = reader.readLine()) != null) {
                 line = line.stripLeading().stripTrailing().strip().trim();
                 set.add(line);

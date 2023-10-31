@@ -29,19 +29,24 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static de.citec.etradis.core.Constants.FIND_ENTITIES_FROM_CLASS;
+import de.citec.etradis.core.sparql.CreateSuperClass;
 import de.citec.etradis.finder.Resource;
 import de.citec.etradis.finder.Resources;
 import de.citec.etradis.finder.VedioFinder;
 import de.citec.etradis.utils.Cleaner;
 import de.citec.etradis.utils.CommandLine;
 import de.citec.etradis.utils.CsvFile;
+import de.citec.etradis.utils.RegexMatcherExample;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import static java.lang.System.exit;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.core.util.FileUtils;
 
 /**
@@ -50,7 +55,12 @@ import org.apache.logging.log4j.core.util.FileUtils;
  */
 public class Main implements Constants {
 
+    //"http://localhost:9999/blazegraph/sparql"
+    private static String local_endpoint = "https://localhost:9999/blazegraph/#query";
+    private static String public_endpoint = "https://dbpedia.org/sparql";
+
     public static void main(String args[]) throws IOException {
+
         Set<String> menus = new HashSet<String>();
         //menus.add(FIND_IMAGE);
         //menus.add(FIND_ENTITIES_OF_CLASS);
@@ -60,40 +70,207 @@ public class Main implements Constants {
         String task = FIND_IMAGE_PKLE_FILE;
         //task = FindImageGivenUri;
         //task =ConvertToJson;
-        task = FIND_IMAGE_GIVEN_URI_LIST;
+        //task = FIND_IMAGE_GIVEN_URI_LIST;
+        //task = FIND_SUPER_CLASS_GIVEN_URI;
+        //task = FIND_SUPER_CLASS_GIVEN_URI_CSV;
+        task = FIND_WIKIDATA_RESULT_GIVEN_URI;
+        //task = FIND_WIKIDATA_LOCATION;
+        task = FIND_SUPER_CLASS_ETRADIS_CATEGORY;
+        //task=FIND_OBJECTS;
+        //task=FIND_RESOURCE_ETRADIS_TYPE_MAP;
+        //task=COUNT_ETRADIS_CATEGORY;
+        task = FIND_RESOURCE_ETRADIS_CATEGORY;
+        //task=FIND_WIKIDATA_LOCATION;
 
-        Tasks(task);
+        task = UPDATE_NEO4J_DATA;
+        task = FIND_VALID_TURTLE;
+
+        //task=args[0];
+        String dataDir = "/media/elahi/Elements/A-Projects/dbpedia2022_snapshot/";
+        //int count = StringUtils.countMatches("<http://www.wikidata.org/entity/Q64431180> <http://www.wikidata.org/prop/direct/P840> <http://www.wikidata.org/entity/Q142> ","<");
+
+        //System.out.println("count::"+count);
+       
+        Tasks(task, dataDir);
     }
 
-    private static void Tasks(String key) throws IOException {
+    private static void Tasks(String task, String dataDir) throws IOException {
+        switch (task) {
+            //culture artifact 9411294 4 <http://www.wikidata.org/entity/Q90366177> <http://www.wikidata.org/prop/direct/P50> <http://www.wikidata.org
 
-        switch (key) {
+            case FIND_VALID_TURTLE: {
+                String fileName = "LocationP625_Corrected_rest_Corrected_2.ttl";
+                String filePrefix = fileName.replace(".ttl", "");
+                //String fileName = "Cultural_P50_2.ttl";
+                String inputFilePath = "/media/elahi/Elements/A-Projects/wikidata/" + fileName;
+                String outputFilePath = "/media/elahi/Elements/A-Projects/wikidata/" + filePrefix + "_Corrected.ttl";
+                String wrongFilePath = "/media/elahi/Elements/A-Projects/wikidata/" + filePrefix + "_Wrong.ttl";
+                Integer index = 98352;
+                try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath))) {
+                    String line = null;//Integer limit=100000;
+                    Integer total = 26183890; //21497561  //36517768 //98352
+                    while ((line = reader.readLine()) != null) {
+                        if (line.contains(" ")) {
+                            String[] info = line.split("> ");
+                            if (RegexMatcherExample.check(line)) {
+                                writeFile(outputFilePath, line + "\n");
+                            } else {
+                                System.out.println(26183890 + " " + index + " " + line);
+                                writeFile(wrongFilePath, line + "\n");
+
+                            }
+
+                        }
+                        index = index + 1;
+                        /* if(index>limit)
+                             break;  */
+
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+            case UPDATE_NEO4J_DATA: {
+
+                System.out.println("sparqlStr::");
+                break;
+            }
+            case "WRITE_ETRADIS_CATEGORY": {
+                List<String> filers = Arrays.asList(new String[]{"http://dbpedia.org/ontology/wikiPageWikiLink"});
+                SparqlQuery sparqlQuery = new SparqlQuery("http://localhost:9999/blazegraph/sparql", filers);
+                CreateSuperClass reateSuperClass = new CreateSuperClass();
+                Map<String, String> sparqls = reateSuperClass.countEtradisCategoriySparqls();
+                Integer sum = 0;
+                for (String category : sparqls.keySet()) {
+                    String sparqlStr = sparqls.get(category);
+                    List<String> results = sparqlQuery.runSparqlQuery(sparqlStr);
+                    Integer value = Integer.parseInt(results.toString().replace("[", "").replace("]", ""));
+                    sum += value;
+                }
+                //String sparqlStr=reateSuperClass.countEtradisCategoriesAll();
+                //List<String> results = sparqlQuery.runSparqlQuery(sparqlStr);
+                //System.out.println("sparqlStr::"+sparqlStr+" "+results);
+                break;
+            }
+            case COUNT_ETRADIS_CATEGORY: {
+                List<String> filers = Arrays.asList(new String[]{"http://dbpedia.org/ontology/wikiPageWikiLink"});
+                SparqlQuery sparqlQuery = new SparqlQuery("http://localhost:9999/blazegraph/sparql", filers);
+                CreateSuperClass reateSuperClass = new CreateSuperClass();
+                Map<String, String> sparqls = reateSuperClass.countEtradisCategoriySparqls();
+                Integer sum = 0;
+                for (String category : sparqls.keySet()) {
+                    String sparqlStr = sparqls.get(category);
+                    List<String> results = sparqlQuery.runSparqlQuery(sparqlStr);
+                    Integer value = Integer.parseInt(results.toString().replace("[", "").replace("]", ""));
+                    sum += value;
+                }
+                //String sparqlStr=reateSuperClass.countEtradisCategoriesAll();
+                //List<String> results = sparqlQuery.runSparqlQuery(sparqlStr);
+                //System.out.println("sparqlStr::"+sparqlStr+" "+results);
+                break;
+            }
+            case FIND_SUPER_CLASS_ETRADIS_CATEGORY: {
+                File outputFile = new File(dataDir + "superToEtradisClass.ttl");
+                List<String> filers = Arrays.asList(new String[]{"http://dbpedia.org/ontology/wikiPageWikiLink"});
+                SparqlQuery sparqlQuery = new SparqlQuery(local_endpoint, filers);
+                CreateSuperClass reateSuperClass = new CreateSuperClass();
+                String sparqlStr = reateSuperClass.findClassLocal();
+                List<String> classNames = sparqlQuery.runSparqlQuery(sparqlStr);
+                sparqlQuery = new SparqlQuery(public_endpoint, filers);
+                if (outputFile.isFile()) {
+                    outputFile.delete();
+                }
+
+                for (String classUri : classNames) {
+                    if (classUri.contains("http://dbpedia.org/ontology/")) {
+                        sparqlStr = reateSuperClass.superClassSparql(classUri);
+                        List<String> results = sparqlQuery.runSparqlQuery(sparqlStr);
+                        if (!results.isEmpty()) {
+                            for (String result : results) {
+                                String etradisClass = reateSuperClass.findEtradisClass(result);
+                                String ksvLine = "<" + classUri + ">" + " " + "<" + "http://localhost:9999/etradis#type" + ">" + " " + "<" + "http://localhost:9999/etradis/" + etradisClass + ">" + " .";
+                                System.out.println(ksvLine);
+                                FileFolderUtils.appendToFile(outputFile, ksvLine);
+                            }
+                        }
+                    }
+
+                }
+                break;
+            }
+            case FIND_RESOURCE_ETRADIS_CATEGORY: {
+                File instanceFile = new File(dataDir + "instance.ttl");
+                File inputFile = new File(dataDir + "superToEtradisClass.ttl");
+                File outputFile = new File(dataDir + "resourceEtradisClass.ttl");
+                if (outputFile.isFile()) {
+                    outputFile.delete();
+                }
+                Map<String, String> superClass = FileFolderUtils.fileToMap(inputFile, -1);
+                List<String> filers = Arrays.asList(new String[]{"http://dbpedia.org/ontology/wikiPageWikiLink"});
+                CreateSuperClass reateSuperClass = new CreateSuperClass();
+                try {
+                    reateSuperClass.resourceToEtradisType(instanceFile, outputFile, filers, superClass);
+                } catch (Exception ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex.getMessage());
+                    ex.printStackTrace();
+                }
+                break;
+            }
+            case FIND_WIKIDATA_RESULT_GIVEN_URI: {
+                File inputFile = new File("/media/elahi/Elements/A-project/etradis/DBpedia/dbpedia2022_snapshot/instance.ttl");
+                File outputFile = new File("/media/elahi/Elements/A-project/etradis/DBpedia/updated_labels.csv");
+                List<String> filers = Arrays.asList(new String[]{"http://dbpedia.org/ontology/wikiPageWikiLink"});
+                SparqlQuery sparqlQuery = new SparqlQuery("https://dbpedia.org/sparql", filers);
+                CreateSuperClass reateSuperClass = new CreateSuperClass();
+                reateSuperClass.saveSuperKlass(inputFile, outputFile, sparqlQuery, filers);
+                break;
+            }
+            case FIND_SUPER_CLASS_GIVEN_URI: {
+                File inputFile = new File("/media/elahi/Elements/A-project/etradis/DBpedia/dbpedia2022_snapshot/instance.ttl");
+                File outputFile = new File("/media/elahi/Elements/A-project/etradis/DBpedia/updated_labels.csv");
+                List<String> filers = Arrays.asList(new String[]{"http://dbpedia.org/ontology/wikiPageWikiLink"});
+                SparqlQuery sparqlQuery = new SparqlQuery("https://dbpedia.org/sparql", filers);
+                CreateSuperClass reateSuperClass = new CreateSuperClass();
+                reateSuperClass.saveSuperKlass(inputFile, outputFile, sparqlQuery, filers);
+                break;
+            }
+            case FIND_SUPER_CLASS_GIVEN_URI_CSV: {
+                File inputFile = new File("/home/elahi/A-etardis/resources/data/updated_labels_uris.csv");
+                File outputFile = new File("/home/elahi/A-etardis/resources/data/updated_labels_done.csv");
+                List<String> filers = Arrays.asList(new String[]{"http://dbpedia.org/ontology/wikiPageWikiLink"});
+                SparqlQuery sparqlQuery = new SparqlQuery("https://dbpedia.org/sparql", filers);
+                CreateSuperClass reateSuperClass = new CreateSuperClass();
+                reateSuperClass.saveSuperKlassFromCsv(inputFile, outputFile, sparqlQuery, filers);
+                break;
+            }
             case FIND_IMAGE_GIVEN_URI_LIST: {
                 String uriFile = "src/main/resources/uri.txt";
-                String outputFileName="/home/elahi/A-etardis/resources/image.csv";
+                String outputFileName = "/home/elahi/A-etardis/resources/image.csv";
                 String[] header = new String[3];
-                
-                LinkedHashMap<String,String> uris = FileFolderUtils.getUris(uriFile);
+
+                LinkedHashMap<String, String> uris = FileFolderUtils.getUris(uriFile);
                 CSVWriter csvWriterQuestions = new CSVWriter(new FileWriter(outputFileName, true));
                 //csvWriterQuestions.writeNext(new String[]{"DBpediaUri","Image","AllImages"});
-                Integer limit=uris.size(); Integer index=0;
+                Integer limit = uris.size();
+                Integer index = 0;
                 for (String url_dbpedia : uris.keySet()) {
-                    String[]row=new String[3];
-                    String url_wikipedia=uris.get(url_dbpedia);
+                    String[] row = new String[3];
+                    String url_wikipedia = uris.get(url_dbpedia);
                     ImageFinder imageFinder = new ImageFinder(url_wikipedia);
                     if (!imageFinder.getImagesUris().isEmpty()) {
-                        row[0]=url_dbpedia;
-                        row[1]=imageFinder.getImagesUris().iterator().next();
-                        row[2]=imageFinder.getImagesUris().toString();
+                        row[0] = url_dbpedia;
+                        row[1] = imageFinder.getImagesUris().iterator().next();
+                        row[2] = imageFinder.getImagesUris().toString();
+                    } else {
+                        row[0] = url_dbpedia;
+                        row[1] = "X";
+                        row[2] = "X";
                     }
-                    else{
-                        row[0]=url_dbpedia;
-                        row[1]="X";
-                        row[2]="X";    
-                    }
-                    System.out.println("limit::"+limit+" index::"+index+" "+row[0]+" "+url_wikipedia+" "+row[1]+" "+imageFinder.getImagesUris().size());
+                    System.out.println("limit::" + limit + " index::" + index + " " + row[0] + " " + url_wikipedia + " " + row[1] + " " + imageFinder.getImagesUris().size());
                     csvWriterQuestions.writeNext(row);
-                    index=index+1;                    
+                    index = index + 1;
                 }
                 csvWriterQuestions.close();
                 //https://en.wikipedia.org/wiki/LGBT_movements
@@ -317,6 +494,55 @@ public class Main implements Constants {
 
             }
             break;
+            case FIND_WIKIDATA_LOCATION: {
+                List<String> filers = Arrays.asList(new String[]{"http://dbpedia.org/ontology/wikiPageWikiLink"});
+                SparqlQuery sparqlQuery = new SparqlQuery("https://query.wikidata.org/", filers);
+                String sparqlStr = "SELECT ?coordinates WHERE {{\n"
+                        + "            BIND ( wd:Q22686 AS ?id ).\n"
+                        + "            {{ \n"
+                        + "                ?id wdt:P625 ?coordinates. \n"
+                        + "            }}\n"
+                        + "            UNION\n"
+                        + "            {{\n"
+                        + "                ?id wdt:P276 ?location.\n"
+                        + "                ?location wdt:P625 ?coordinates.\n"
+                        + "            }}\n"
+                        + "            UNION\n"
+                        + "            {{\n"
+                        + "                ?id wdt:P17 ?country.\n"
+                        + "                ?country wdt:P625 ?coordinates.\n"
+                        + "            }}\n"
+                        + "            UNION\n"
+                        + "            {{\n"
+                        + "                ?id wdt:P495 ?originCountry.\n"
+                        + "                ?originCountry wdt:P625 ?coordinates.\n"
+                        + "            }}\n"
+                        + "            UNION\n"
+                        + "            {{\n"
+                        + "                ?id wdt:P840 ?narrativeLocation.\n"
+                        + "                ?narrativeLocation wdt:P625 ?coordinates.\n"
+                        + "            }}\n"
+                        + "            UNION\n"
+                        + "            {{\n"
+                        + "                ?id wdt:P27 ?countryCitizenship.\n"
+                        + "                ?countryCitizenship wdt:P625 ?coordinates.\n"
+                        + "            }}\n"
+                        + "            UNION\n"
+                        + "            {{\n"
+                        + "                ?id wdt:P19 ?placeBirth.\n"
+                        + "                ?placeBirth wdt:P625 ?coordinates.\n"
+                        + "            }}\n"
+                        + "            UNION\n"
+                        + "            {{\n"
+                        + "                ?id wdt:P20 ?placeDeath.\n"
+                        + "                ?placeDeath wdt:P625 ?coordinates.\n"
+                        + "            }}\n"
+                        + "        }}";
+                List<String> uris = sparqlQuery.runSparqlQuery(sparqlStr);
+                System.out.println(uris);
+
+                break;
+            }
             default:
                 System.out.println("no menu is found!!");
         }
@@ -745,4 +971,45 @@ public class Main implements Constants {
         return entity.replace("http://dbpedia.org/resource/", "http://en.wikipedia.org/wiki/");
     }
 
+    public static void writeFile(String filePath, String data) {
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
+                            /*if ( line.contains("<http://www.wikidata.org/prop/direct/P625>")
+                                    && line.contains("\"Point(")
+                                    && line.contains(")\"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .")
+                                    && inCount == 3 && outCount == 3 && pointCount == 1
+                                    && bktCountIn == 1 && bktCountOut == 1 && quoteCount == 2 && endCount == 1 && symCount == 2) {
+                                    //if (index > 98352) {
+                                //System.out.println(26183890+" "+index +  " " + line);
+                                writeFile(outputFilePath, line + "\n");
+                                //}
+
+                            } else {
+
+                                System.out.println(26183890 + " " + index + " " + line);
+                                writeFile(wrongFilePath, line + "\n");
+
+                            }*/
+     /*String line = "<http://www.wikidata.org/entity/Q25328621> "
+                + "<http://www.wikidata.org/prop/direct/P625> "
+                + "\"Point(15.306388888889 44.723333333333)\"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .";
+        int inCount = StringUtils.countMatches(line, "<");
+        int outCount = StringUtils.countMatches(line, ">");
+        int pointCount = StringUtils.countMatches(line, "Point");
+        int bktCountIn = StringUtils.countMatches(line, "(");
+        int bktCountOut = StringUtils.countMatches(line, ")");
+        int quoteCount = StringUtils.countMatches(line, "\"");
+        int endCount = StringUtils.countMatches(line, "<http://www.opengis.net/ont/geosparql#wktLiteral> .");
+        int symCount = StringUtils.countMatches(line, "^");
+        System.out.println("inCount::" + inCount + " outCount::" + outCount + " pointCount::" + pointCount
+                + " quoteCount::" + quoteCount + " dotCount::" + endCount + " symCount::" + symCount
+                + " bracketCountIn::" + bktCountIn + " bracketCountOut::" + bktCountOut);
+         */
 }

@@ -1,0 +1,89 @@
+SELECT ?coordinates WHERE {{
+            BIND ( wd:Q22686 AS ?id ).
+            {{ 
+                ?id wdt:P625 ?coordinates. 
+            }}
+            UNION
+            {{
+                ?id wdt:P276 ?location.
+                ?location wdt:P625 ?coordinates.
+            }}
+            UNION
+            {{
+                ?id wdt:P17 ?country.
+                ?country wdt:P625 ?coordinates.
+            }}
+            UNION
+            {{
+                ?id wdt:P495 ?originCountry.
+                ?originCountry wdt:P625 ?coordinates.
+            }}
+            UNION
+            {{
+                ?id wdt:P840 ?narrativeLocation.
+                ?narrativeLocation wdt:P625 ?coordinates.
+            }}
+            UNION
+            {{
+                ?id wdt:P27 ?countryCitizenship.
+                ?countryCitizenship wdt:P625 ?coordinates.
+            }}
+            UNION
+            {{
+                ?id wdt:P19 ?placeBirth.
+                ?placeBirth wdt:P625 ?coordinates.
+            }}
+            UNION
+            {{
+                ?id wdt:P20 ?placeDeath.
+                ?placeDeath wdt:P625 ?coordinates.
+            }}
+        }}
+
+
+SELECT ?time WHERE {{
+            BIND ( wd:Q22686 AS ?id ).
+            {{
+                ?id wdt:P580 ?time.
+            }}
+            UNION
+            {{
+                ?id wdt:P582 ?time.
+            }}
+            UNION
+            {{
+                ?id wdt:P2348 ?t1.
+                OPTIONAL {{ ?t1 wdt:P580 ?time. }}
+                OPTIONAL {{ ?t1 wdt:P582 ?time. }}
+            }}
+            UNION
+            {{
+                ?id wdt:P577 ?time. 
+                ?id wdt:P577 ?time. 
+            }}
+            UNION
+            {{ 
+                ?id wdt:P585 ?time. 
+                ?id wdt:P585 ?time. 
+            }}
+            UNION
+            {{
+                ?id wdt:P569 ?time.
+            }}
+            UNION
+            {{
+                ?id wdt:P570 ?time.
+            }}
+        }}
+
+
+P580
+P582
+P2348
+P580 
+P582
+P577 
+P577
+P585
+P569
+P570

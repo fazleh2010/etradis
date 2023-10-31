@@ -1,0 +1,20 @@
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX dbr: <http://dbpedia.org/resource/>
+        PREFIX dbt: <http://dbpedia.org/property/wikiPageUsesTemplate>
+        SELECT DISTINCT ?p ?s
+        WHERE {{
+            ?s ?p <{uri}> .
+            FILTER (STRSTARTS(STR(?p), STR(dbo:wikiPageWikiLink)) || STRSTARTS(STR(?p), STR(dbo:wikiPageExternalLink))) .
+        }}
+        """
+
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX dbr: <http://dbpedia.org/resource/>
+        PREFIX dbt: <http://dbpedia.org/property/wikiPageUsesTemplate>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        PREFIX wd: <http://www.wikidata.org/>
+        SELECT DISTINCT ?p ?o
+        WHERE {{
+            <{uri}> ?p ?o .
+           FILTER (STRSTARTS(STR(?p), STR(dbo:wikiPageWikiLink)) || STRSTARTS(STR(?p), STR(dbo:wikiPageExternalLink)))
+        }}

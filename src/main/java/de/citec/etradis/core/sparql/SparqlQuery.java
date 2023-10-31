@@ -5,8 +5,14 @@
  */
 package de.citec.etradis.core.sparql;
 
-import de.citec.etradis.core.DBPediaHandler.DBpediaHelper;
+import de.citec.etradis.core.FileFolderUtils;
+import de.citec.etradis.core.dppedia.helper.DBpediaHelper;
+import static de.citec.etradis.core.dppedia.helper.DBpediaHelper.FIND_CLASS;
+import static de.citec.etradis.core.dppedia.helper.DBpediaHelper.FIND_OBJECT_CONNECTION;
+import static de.citec.etradis.core.dppedia.helper.DBpediaHelper.FIND_SUBJECT_CONNECTION;
+import de.citec.etradis.core.dppedia.helper.Filter;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
@@ -14,6 +20,7 @@ import java.io.UnsupportedEncodingException;
 import static java.lang.System.exit;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -37,26 +44,27 @@ public class SparqlQuery {
 
     private static String endpoint = "https://dbpedia.org/sparql";
     private String objectOfProperty;
-    public static String FIND_ANY_ANSWER = "FIND_ANY_ANSWER";
-    public static String FIND_LABEL = "FIND_LABEL";
     private String sparqlQuery = null;
-    public static String RETURN_TYPE_OBJECT = "objOfProp";
-    public static String RETURN_TYPE_SUBJECT = "subjOfProp";
-    public static String VARIABLE = "VARIABLE";
-    public static String QUESTION_MARK = "?";
-    private String resultSparql = null;
     private String command = null;
     private List<String> uris=new ArrayList<String>();
 
     private String type = null;
     private List<Binding> bindingList = new ArrayList<Binding>();
+    private List<String> filters = new ArrayList<String>();
     private Boolean online = false;
-
-    public SparqlQuery(String sparqlQuery) {
-        endpoint = "https://dbpedia.org/sparql";
-        this.resultSparql = executeSparqlQuery(sparqlQuery);
-        this.parseResultBindingList(resultSparql);
+    
+   
+    public SparqlQuery(String endpointT,List<String>filter) {
+        endpoint = endpointT;
+        this.filters = filter;
     }
+     public List<String> runSparqlQuery(String sparqlQuery) {
+        String resultSparql = executeSparqlQuery(sparqlQuery);
+        System.out.println(resultSparql);
+        this.parseResult(resultSparql);
+        return this.uris;
+    }
+
 
     public String executeSparqlQuery(String query) {
         String result = null, resultUnicode = null;
@@ -116,7 +124,7 @@ public class SparqlQuery {
     }
 
     private void parseResult(DocumentBuilder builder, String xmlStr) {
-       uris=new ArrayList<String>();
+        uris = new ArrayList<String>();
         try {
             Document document = builder.parse(new InputSource(new StringReader(
                     xmlStr)));
@@ -126,12 +134,50 @@ public class SparqlQuery {
                 for (int j = 0; j < childList.getLength(); j++) {
                     Node childNode = childList.item(j);
                     if ("result".equals(childNode.getNodeName())) {
-                        String answer = childList.item(j).getTextContent().trim();
                         //if (endpoint.contains("dbpedia") && type.contains(FIND_ANY_ANSWER) && answer.contains("--")) {
                         //    continue;
                         //} else {
-                            this.objectOfProperty = childList.item(j).getTextContent().trim();
-                            uris.add(this.objectOfProperty);
+                        String objectOfProperty = childList.item(j).getTextContent().trim();
+                        uris.add(objectOfProperty);
+                        //System.out.println(objectOfProperty);
+                        /*System.out.println(objectOfProperty+" "+filters);
+                         String property = null;
+                        String subOrObjUri = null;
+
+                        if(objectOfProperty.contains(" ")){
+                          String[] info = objectOfProperty.split(" ");
+                          try{
+                               property = info[1];
+                          subOrObjUri = info[0];
+                           if(this.filters.contains(property))
+                              uris.add(subOrObjUri);
+                           else if(this.filters.isEmpty()){
+                               uris.add(objectOfProperty); 
+                           } 
+                           else
+                               uris.add(objectOfProperty);
+                          }catch(Exception ex){
+                              System.out.println(objectOfProperty+" "+ex.getMessage());
+                             continue; 
+                          }*/
+                         
+                             /*if(objectOfProperty.contains("http://dbpedia.org/ontology/wikiPageWikiLink")){
+                                uris.add(objectOfProperty); 
+
+                             }*/
+                             /*if(objectOfProperty.contains("http://www.w3.org/2000/01/rdf-schema#label")){
+                                uris.add(objectOfProperty); 
+
+                             }
+                             if(objectOfProperty.contains("http://dbpedia.org/ontology/abstract")){
+                                uris.add(objectOfProperty); 
+
+                             }*/
+                             
+                         
+                       
+                        
+                       
                         //}
                     }
                 }
@@ -145,10 +191,10 @@ public class SparqlQuery {
             Logger.getLogger(SparqlQuery.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("no result after sparql query!" + ex.getMessage());
         }
-        
+
     }
 
-    public String setSubjectLabelWikipedia(String entityUrl, String property, String language) {
+    public String setSubjectLabelWikipedia(String entityUrl, String property, String language,List<String>filter) {
         String sparql = null;
         if (isEntity(entityUrl)) {
             sparql = PrepareSparqlQuery.setLabelWikipedia(entityUrl, language);
@@ -181,10 +227,7 @@ public class SparqlQuery {
         return sparqlQuery;
     }
 
-    public String getResultSparql() {
-        return resultSparql;
-    }
-
+   
     @Override
     public String toString() {
         return "SparqlQuery{" + "objectOfProperty=" + objectOfProperty + ", sparqlQuery=" + sparqlQuery + '}';
@@ -202,140 +245,6 @@ public class SparqlQuery {
         return bindingList;
     }
 
-    private void parseResultBindingList(String xmlStr) {
-        Document doc = convertStringToXMLDocument(xmlStr);
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = null;
-        try {
-            builder = factory.newDocumentBuilder();
-            this.parseResult(builder, xmlStr);
-        } catch (Exception ex) {
-            Logger.getLogger(SparqlQuery.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println("error in parsing sparql in XML!" + ex.getMessage());
-            ex.printStackTrace();
-        }
-
-        try {
-            Document document = builder.parse(new InputSource(new StringReader(
-                    xmlStr)));
-            NodeList results = document.getElementsByTagName("results");
-            for (int i = 0; i < results.getLength(); i++) {
-                NodeList childList = results.item(i).getChildNodes();
-                for (int j = 0; j < childList.getLength(); j++) {
-                    Node childNode = childList.item(j);
-                    if ("result".equals(childNode.getNodeName())) {
-                        String[] lines = childList.item(j).getTextContent().strip().trim().split(System.getProperty("line.separator"));
-                        Integer index = 0;
-                        String http = "", label = "";
-                        Map<String, String> map = new TreeMap<String, String>();
-                        for (String line : lines) {
-
-                            if (index == 0) {
-                                http = line.strip().trim();
-                            } else if (endpoint.contains("wikidata") && index == 3) {
-                                label = line.strip().trim();
-                            } else if (endpoint.contains("beniculturali") && index == 1) {
-                                label = line.strip().trim();
-                            }
-
-                            index = index + 1;
-                        }
-                        map.put(http, label);
-                        Binding binding = new Binding(label, http);
-                        this.bindingList.add(binding);
-                    }
-
-                }
-
-            }
-        } catch (SAXException ex) {
-            Logger.getLogger(SparqlQuery.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println("no result after sparql query!" + ex.getMessage());
-            return;
-        } catch (IOException ex) {
-            Logger.getLogger(SparqlQuery.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println("no result after sparql query!" + ex.getMessage());
-            return;
-        }
-    }
-
-    private String modifyBindingListSparql(String sparqlQuery) {
-        String[] lines = sparqlQuery.strip().trim().split(System.getProperty("line.separator"));
-        String str = "";
-        for (String line : lines) {
-            if (line.contains("FILTER")) {
-                continue;
-            } else {
-                str += line + "\n";
-            }
-
-        }
-        return str;
-    }
-
-    /*private String  modifyObjectAnswerSparql(String sparqlQuery) {
-        String[] lines =  sparqlQuery.strip().trim().split(System.getProperty("line.separator"));
-        String str="";
-        for(String line :lines){
-            if(line.contains("FILTER"))
-               continue;
-            else if(line.contains("rdfs:label"))
-               continue;
-            else
-            str+=line+"\n";
-
-        }
-        return str;
-    }*/
- /*
-    
-PREFIX dbo: <http://dbpedia.org/ontology/>
-PREFIX res: <http://dbpedia.org/resource/>
-SELECT DISTINCT ?uri WHERE { 
-        res:French_Polynesia dbo:capital ?x .
-        ?x dbo:mayor ?uri .
-}
-    
-    
-    
-       sparqlQuery:::(bgp
-  
-  (triple ?subjOfPropx <http://dbpedia.org/ontology/capital> ?subjOfProp)
-  (triple ?subjOfProp <http://dbpedia.org/ontology/mayor> ?objOfProp)
-)
-    "bindingType" : "Country",
-    "returnType" : "Person",
-     */
-    private String setObjectWikiPediaComposite(String entityUrl, String sparqlOrg, QueryType queryType, String returnVariable) {
-        String[] lines = sparqlOrg.split(System.getProperty("line.separator"));
-        //entityUrl="http://dbpedia.org/resource/France";
-        String sparql = "";
-        for (String line : lines) {
-
-            if (line.contains("bgp") && queryType.equals(QueryType.SELECT)) {
-                line = "SELECT DISTINCT " + "?" + returnVariable + " WHERE { ";
-            } /*else if (queryType.equals(QueryType.SELECT) && type.contains(RETURN_TYPE_SUBJECT)) {
-                line = "SELECT DISTINCT " + "?" + RETURN_TYPE_SUBJECT + " WHERE { ";
-
-            }*/ else if (line.contains("triple") || line.contains("?subjOfPropx") || line.contains("?objOfPropx")) {
-                line = line.replace("triple", "");
-                line = line.replace("?subjOfPropx", "<" + entityUrl + ">");
-                line = line.replace("?objOfPropx", "<" + entityUrl + ">");
-                line = line + " .";
-            }
-
-            sparql += line;
-
-        }
-
-        sparql = sparql.replace("(", "").replace(")", "") + "}";
-
-        return sparql;
-    }
-
-    private boolean isPropertyLabel(String property) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     private boolean isEntity(String entityUrl) {
         if (entityUrl.contains("http:")) {
@@ -348,12 +257,78 @@ SELECT DISTINCT ?uri WHERE {
         return uris;
     }
     
-     public static void main(String args[]){
-         String sparqlSuperclass=DBpediaHelper.sparqlSuperclasses("http://dbpedia.org/resource/Hundred_Years'_War");
-         System.out.println(sparqlSuperclass);
-         SparqlQuery sparqlQuery=new SparqlQuery(sparqlSuperclass);
-         System.out.println(sparqlQuery.getUris());
-         
+     public static void main(String args[]) throws IOException{
+         List<String>filers=Arrays.asList(new String[]{"http://dbpedia.org/ontology/wikiPageWikiLink"});
+          String endpoint = "https://dbpedia.org/sparql";
+          //String endpoint = "http://localhost:9999/blazegraph/sparql";
+          String url="http://dbpedia.org/resource/Hundred_Years'_War";
+          SparqlQuery sparqlQuery =new SparqlQuery(endpoint,filers);
+          String sparqlL="SELECT DISTINCT ?o\n" +
+"        WHERE {\n" +
+"            <http://dbpedia.org/resource/Hundred_Years'_War> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?o .\n" +
+"        }";
+
+          //DBpediaHelper dbpediaHelper=new DBpediaHelper(sparqlQuery,url,FIND_CLASS+FIND_OBJECT_CONNECTION+FIND_SUBJECT_CONNECTION);
+           DBpediaHelper dbpediaHelper=new DBpediaHelper(sparqlQuery,url,FIND_CLASS);
+           //DBpediaHelper dbpediaHelper=new DBpediaHelper(sparqlQuery,url,FIND_CLASS);
+
+           String str="";
+          for(String sparql: dbpediaHelper.getSparqlResults().keySet()){
+               List<String> result=dbpediaHelper.getSparqlResults(sparql);
+                //System.out.println(" sparql::"+sparql);
+                System.out.println(url+" "+result);
+                String line=result+"\n";
+                str+=line;
+          }
+          //FileFolderUtils.stringToFile(str, new File("src/main/resources/publi.txt"));
+          
+          //Testing triple store.
+          /*String endpointT="http://localhost:9999/blazegraph/sparql";
+          SparqlQuery sparqlQuery=new SparqlQuery(endpointT,new ArrayList<String>());
+          String sparqlStr="select ?s where { ?s ?p ?o } limit 1";
+          List<String> results=sparqlQuery.runSparqlQuery(sparqlStr);
+          System.out.println(results);*/
+          
+          
+
+        
      }
+     
+     /*
+     PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX dbr: <http://dbpedia.org/resource/>
+        PREFIX dbt: <http://dbpedia.org/property/wikiPageUsesTemplate>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        PREFIX wd: <http://www.wikidata.org/>
+        SELECT DISTINCT ?p ?o
+        WHERE {{
+            <http://dbpedia.org/resource/Hundred_Years'_War> ?p ?o .
+            FILTER ( STRSTARTS(STR(?o), STR(dbo:)) || STRSTARTS(str(?o), STR(dbr:)) || isLiteral(?o) || STRSTARTS(STR(?p), STR(dbo:wikiPageExternalLink)) || (STRSTARTS(STR(?p), STR(owl:sameAs)) && (STRSTARTS(STR(?o), STR(wd:entity))))) .
+            FILTER ( !STRSTARTS(STR(?p), STR(dbt:)) ) .
+        }}
+     */
+     /*
+      PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX dbr: <http://dbpedia.org/resource/>
+        PREFIX dbt: <http://dbpedia.org/property/wikiPageUsesTemplate>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        PREFIX wd: <http://www.wikidata.org/>
+        SELECT DISTINCT ?p ?o
+        WHERE {{
+            <http://dbpedia.org/resource/Hundred_Years'_War> ?p ?o .
+            FILTER ( STRSTARTS(STR(?o), STR(dbo:)) || STRSTARTS(str(?o), STR(dbr:)) || isLiteral(?o) || STRSTARTS(STR(?p), STR(dbo:wikiPageExternalLink)) || (STRSTARTS(STR(?p), STR(owl:sameAs)) && (STRSTARTS(STR(?o), STR(wd:entity))))) .
+            FILTER ( !STRSTARTS(STR(?p), STR(dbt:)) ) .
+        }}
+     */
+     
+     /*PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+        SELECT DISTINCT ?x
+        WHERE {
+            <http://dbpedia.org/resource/Hundred_Years'_War> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?o .
+            ?o <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?x .
+            ?x<http://www.w3.org/2000/01/rdf-schema#subClassOf> owl:Thing .
+            FILTER ( STRSTARTS(STR(?o), STR(dbo:)) || STRSTARTS(str(?o), STR(dbr:)) )
+        }*/
 
 }
