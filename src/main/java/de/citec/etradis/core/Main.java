@@ -10,8 +10,6 @@ import com.opencsv.CSVWriter;
 import static de.citec.etradis.core.Constants.CLASS_DIR;
 import static de.citec.etradis.core.Constants.DBPEDIA_DIR;
 import de.citec.etradis.finder.ImageFinder;
-import static de.citec.etradis.core.Constants.URI_MEDIA;
-import de.citec.etradis.core.sparql.PrepareSparqlQuery;
 import de.citec.etradis.core.sparql.SparqlQuery;
 import java.io.BufferedReader;
 import java.io.File;
@@ -34,20 +32,13 @@ import de.citec.etradis.finder.Resource;
 import de.citec.etradis.finder.Resources;
 import de.citec.etradis.finder.VedioFinder;
 import de.citec.etradis.utils.Cleaner;
-import de.citec.etradis.utils.CommandLine;
-import de.citec.etradis.utils.CsvFile;
 import de.citec.etradis.utils.RegexMatcherExample;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import static java.lang.System.exit;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.core.util.FileUtils;
 
 /**
  *
@@ -84,6 +75,7 @@ public class Main implements Constants {
 
         task = UPDATE_NEO4J_DATA;
         task = FIND_VALID_TURTLE;
+        task=LGBT_DATA_TRIPLE;
 
         //task=args[0];
         String dataDir = "/media/elahi/Elements/A-Projects/dbpedia2022_snapshot/";
@@ -98,6 +90,27 @@ public class Main implements Constants {
         switch (task) {
             //culture artifact 9411294 4 <http://www.wikidata.org/entity/Q90366177> <http://www.wikidata.org/prop/direct/P50> <http://www.wikidata.org
 
+            case LGBT_DATA_TRIPLE: {
+                File turtleFile = new File("src/main/resources/LgbtData.ttl");
+                //add type
+                Integer length = 2535;
+                String content = "";
+               
+                for (Integer index = 1632; index <= length; index++) {
+                    
+                    Map<String,String> attibutes=new TreeMap<String, String>();
+                    String uri="<http://localhost:9999/etradis#record_" + index + ">";
+                    String triple = uri+" <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person>" + " . " + "\n";
+                    triple +=getPerson(uri,attibutes);
+                    content += triple + "\n";
+                    break;
+                }
+                
+               
+                FileFolderUtils.stringToFile(content, turtleFile);
+                break;
+            }
+            
             case FIND_VALID_TURTLE: {
                 String fileName = "LocationP625_Corrected_rest_Corrected_2.ttl";
                 String filePrefix = fileName.replace(".ttl", "");
@@ -1012,4 +1025,65 @@ public class Main implements Constants {
                 + " quoteCount::" + quoteCount + " dotCount::" + endCount + " symCount::" + symCount
                 + " bracketCountIn::" + bktCountIn + " bracketCountOut::" + bktCountOut);
          */
+
+    private static String getPerson(String uri,Map<String, String> attibutes) {
+        attibutes = getPersonAttributues();
+        String content = "";
+         String object = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>";
+
+        for (String attibute : attibutes.keySet()) {
+            String value = attibutes.get(attibute);
+             String triple ="";
+            if(value.contains("http")){
+               triple = uri + " <http://localhost:9999/" + attibute + "> " +value+ " . " + "\n"; 
+            }
+            else{
+               triple =  uri + " <http://localhost:9999/" + attibute + "> " +"\"" + value+ "\"^^"+ object + " . " + "\n";
+  
+            }
+            
+            content += triple;
+        }
+
+        return content;
+
+    }
+    
+     /*triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/id> "+"\"" + id + object + " . " +"\n";
+                    triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/citeAs> " + citeAs  + " . " +"\n";
+                    triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/title> "+"\"" + title + object + " . " + "\n";
+                    triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/workgroup> "+"\"" + workgroup + object + " . " +"\n";
+                    triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/place> "+"\"" + place + object+ " . " + "\n";
+                    triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/country> "+"\"" + country + object + " . " + "\n";
+                    triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/point> "+"\"" + point + object + " . " + "\n";
+                    triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/certaintyOfLocalisation> "+"\"" + certaintyOfLocalisation + object + " . " + "\n";
+                    triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/originalID> "+"\"" + originalID + object + " . " + "\n";
+        */    
+
+    private static Map<String, String> getPersonAttributues() {
+        Map<String, String> attibutes=new HashMap<String,String>();
+        String id = "2532";
+        String citeAs = "<http://heurist.sfb1288.uni-bielefeld.de/heurist/?recID=2532&db=ipaetzold_erste_datenbank>";
+        String workgroup = "public";
+        String title = "Kor_B_002.pdf | Person2392: Letter to IHB [9 Aug 1978] | Mentions - > ff-Schülerzeitung";
+        String place = "Köln";
+        String country = "Germany";
+        String point = "POINT(6.959974 50.938361)";
+        String city = "City";
+        String certaintyOfLocalisation = "1. High confidence";
+        String originalID = "0-2180";
+
+        attibutes.put("id", id);
+        attibutes.put("citeAs", citeAs);
+        attibutes.put("title", title);
+        attibutes.put("workgroup", workgroup);
+        attibutes.put("place", place);
+        attibutes.put("city", city);
+        attibutes.put("country", country);
+        attibutes.put("point", point);
+        attibutes.put("certaintyOfLocalisation", certaintyOfLocalisation);
+        attibutes.put("originalID", originalID);
+        return attibutes;
+
+    }
 }

@@ -47,6 +47,7 @@ public interface Constants {
     public static String COUNT_ETRADIS_CATEGORY="COUNT_ETRADIS_CATEGORY";
     public static String UPDATE_NEO4J_DATA="UPDATE_NEO4J_DATA";
     public static String FIND_VALID_TURTLE="FIND_VALID_TURTLE";
+    public static String LGBT_DATA_TRIPLE="LGBT_DATA_TRIPLE";
 
 
     public static String FIND_WIKIDATA_LOCATION="FIND_WIKIDATA_LOCATION";

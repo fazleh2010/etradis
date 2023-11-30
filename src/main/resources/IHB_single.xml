@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<hml xmlns="http://heuristnetwork.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://heuristnetwork.org/documentation_and_templates/scheme_hml.xsd">
+<database id="1506">ipaetzold_erste_datenbank</database>
+<query q="sortby:id" db="ipaetzold_erste_datenbank" depth="all" />
+<dateStamp>2023-05-16T08:24:10+00:00</dateStamp>
+<resultCount>823</resultCount>
+<records>
+<record visibility="viewable" visnote="logged in users" selected="no" depth="0">
+<id>1632</id>
+<type id="89" conceptID="2-89">Document</type>
+<citeAs>https://heurist.sfb1288.uni-bielefeld.de/heurist/?recID=1632&amp;db=ipaetzold_erste_datenbank</citeAs>
+<title>Kor_A_001.pdf | OHA: Letter to Detlef Stoffel, IHB
+[Sep 1977]</title>
+<added>2023-01-03 12:40:02</added>
+<modified>2023-04-19 13:15:09</modified>
+<workgroup id="0">public</workgroup>
+<detail conceptID="2-1" name="Title of document" id="1" basename="Name or Title (please rename appropriately)">Kor_A_001.pdf</detail>
+<detail conceptID="2-9" name="Date" id="9" basename="Date">
+<raw>1977-09</raw>
+<year>1977</year>
+<month>9</month>
+<day>1</day>
+</detail>
+<detail conceptID="2-15" name="Author(s)" id="15" basename="Author or Creator (Person, Organisation)" isRecordPointer="true">2171</detail>
+<detail conceptID="2-134" name="Location (place)" id="134" basename="Location (place)" isRecordPointer="true">2172</detail>
+<detail conceptID="2-1017" name="Type of document" id="1017" basename="Type of document" termID="9470" termConceptID="1506-9470" ParentTerm="Writings">Epistolary material</detail>
+<detail conceptID="2-1017" name="Type of document" id="1017" basename="Type of document" termID="6493" termConceptID="2-6493" ParentTerm="Writings">Personal correspondance</detail>
+<detail conceptID="2-1017" name="Type of document" id="1017" basename="Type of document" termID="9472" termConceptID="1506-9472" ParentTerm="Writings">Handwritten text</detail>
+<detail conceptID="1506-1096" name="Addressee(s)" id="1096" basename="Addressee(s)" isRecordPointer="true">2173</detail>
+<detail conceptID="1506-1096" name="Addressee(s)" id="1096" basename="Addressee(s)" isRecordPointer="true">2176</detail>
+<relationship termID="6524" relatedRecordID="2290" term="Mentions" termConceptID="2-6524" inverse="is Mentioned In" invTermID="6523" invTermConceptID="2-6523">2291</relationship>
+<detail conceptID="2-36" id="36" name="Original ID" basename="Original ID">0-1632</detail></record>
+<record visibility="viewable" visnote="logged in users" selected="no" depth="0">
+<id>1633</id>
+<type id="89" conceptID="2-89">Document</type>
+<citeAs>https://heurist.sfb1288.uni-bielefeld.de/heurist/?recID=1633&amp;db=ipaetzold_erste_datenbank</citeAs>
+<title>Kor_A_010.pdf | AHB: Letter to IHB
+[2 Nov 1974]</title>
+<added>2023-01-03 12:40:02</added>
+<modified>2023-04-20 15:25:10</modified>
+<workgroup id="0">public</workgroup>
+<detail conceptID="2-1" name="Title of document" id="1" basename="Name or Title (please rename appropriately)">Kor_A_010.pdf</detail>
+<detail conceptID="2-9" name="Date" id="9" basename="Date">
+<raw>1974-11-02</raw>
+<year>1974</year>
+<month>11</month>
+<day>2</day>
+</detail>
+<detail conceptID="2-15" name="Author(s)" id="15" basename="Author or Creator (Person, Organisation)" isRecordPointer="true">2197</detail>
+<detail conceptID="2-134" name="Location (place)" id="134" basename="Location (place)" isRecordPointer="true">2193</detail>
+<detail conceptID="2-1017" name="Type of document" id="1017" basename="Type of document" termID="9470" termConceptID="1506-9470" ParentTerm="Writings">Epistolary material</detail>
+<detail conceptID="2-1017" name="Type of document" id="1017" basename="Type of document" termID="9473" termConceptID="1506-9473" ParentTerm="Writings">Typed text</detail>
+<detail conceptID="2-1017" name="Type of document" id="1017" basename="Type of document" termID="6493" termConceptID="2-6493" ParentTerm="Writings">Personal correspondance</detail>
+<detail conceptID="1506-1096" name="Addressee(s)" id="1096" basename="Addressee(s)" isRecordPointer="true">2176</detail>
+<relationship termID="6524" relatedRecordID="2337" term="Mentions" termConceptID="2-6524" inverse="is Mentioned In" invTermID="6523" invTermConceptID="2-6523">2338</relationship>
+<detail conceptID="2-36" id="36" name="Original ID" basename="Original ID">0-1633</detail></record>
+<record visibility="viewable" visnote="logged in users" selected="no" depth="0">
+<id>2350</id>
+<type id="1" conceptID="2-1">Record relationship</type>
+<citeAs>https://heurist.sfb1288.uni-bielefeld.de/heurist/?recID=2350&amp;db=ipaetzold_erste_datenbank</citeAs>
+<title>Kor_A_015.pdf | Detlef Stoffel: Letter to AG (DE)
+[30 Jun 1973] | Mentions - &gt; David Wilkerson</title>
+<added>2023-01-19 15:26:59</added>
+<modified>2023-04-20 15:18:53</modified>
+<workgroup id="0">public</workgroup>
+<detail conceptID="2-7" name="Source record" id="7" basename="Source record pointer INTERNAL USE ONLY" isRecordPointer="true">1688</detail>
+<detail conceptID="2-6" name="Relationship type" id="6" basename="Relationship type INTERNAL USE ONLY" termID="6524" termConceptID="2-6524" ParentTerm="Document-to-person relation">Mentions</detail>
+<detail conceptID="2-5" name="Target record" id="5" basename="Target record pointer INTERNAL USE ONLY" isRecordPointer="true">2347</detail>
+<detail conceptID="2-36" id="36" name="Original ID" basename="Original ID">0-2350</detail></record>
+<record visibility="viewable" visnote="logged in users" selected="no" depth="0">
+<id>2351</id>
+<type id="101" conceptID="1506-101">Topic</type>
+<citeAs>https://heurist.sfb1288.uni-bielefeld.de/heurist/?recID=2351&amp;db=ipaetzold_erste_datenbank</citeAs>
+<title>Coversion therapy</title>
+<added>2023-01-19 15:27:33</added>
+<modified>2023-01-19 15:28:34</modified>
+<workgroup id="0">public</workgroup>
+<detail conceptID="2-1" name="Name or Title (please rename appropriately)" id="1" basename="Name or Title (please rename appropriately)">Coversion therapy</detail>
+<detail conceptID="2-36" id="36" name="Original ID" basename="Original ID">0-2351</detail></record>
+
+</records>
+<recordCount>823</recordCount>
+</hml>
