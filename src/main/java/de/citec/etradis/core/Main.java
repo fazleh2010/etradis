@@ -32,20 +32,27 @@ import de.citec.etradis.finder.Resource;
 import de.citec.etradis.finder.Resources;
 import de.citec.etradis.finder.VedioFinder;
 import de.citec.etradis.utils.Cleaner;
+import de.citec.etradis.utils.LgbtDataReader;
+import de.citec.etradis.utils.Record;
 import de.citec.etradis.utils.RegexMatcherExample;
+import static de.citec.etradis.utils.LgbtDataReader.findEtradisClass;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 /**
  *
  * @author elahi
  */
 public class Main implements Constants {
-
     //"http://localhost:9999/blazegraph/sparql"
     private static String local_endpoint = "https://localhost:9999/blazegraph/#query";
     private static String public_endpoint = "https://dbpedia.org/sparql";
@@ -75,14 +82,13 @@ public class Main implements Constants {
 
         task = UPDATE_NEO4J_DATA;
         task = FIND_VALID_TURTLE;
-        task=LGBT_DATA_TRIPLE;
+        task = LGBT_DATA_TRIPLE;
 
         //task=args[0];
         String dataDir = "/media/elahi/Elements/A-Projects/dbpedia2022_snapshot/";
         //int count = StringUtils.countMatches("<http://www.wikidata.org/entity/Q64431180> <http://www.wikidata.org/prop/direct/P840> <http://www.wikidata.org/entity/Q142> ","<");
 
         //System.out.println("count::"+count);
-       
         Tasks(task, dataDir);
     }
 
@@ -91,26 +97,16 @@ public class Main implements Constants {
             //culture artifact 9411294 4 <http://www.wikidata.org/entity/Q90366177> <http://www.wikidata.org/prop/direct/P50> <http://www.wikidata.org
 
             case LGBT_DATA_TRIPLE: {
-                File turtleFile = new File("src/main/resources/LgbtData.ttl");
-                //add type
-                Integer length = 2535;
-                String content = "";
-               
-                for (Integer index = 1632; index <= length; index++) {
-                    
-                    Map<String,String> attibutes=new TreeMap<String, String>();
-                    String uri="<http://localhost:9999/etradis#record_" + index + ">";
-                    String triple = uri+" <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person>" + " . " + "\n";
-                    triple +=getPerson(uri,attibutes);
-                    content += triple + "\n";
-                    break;
-                }
+                String srcDir = "src/main/resources/";
+                File turtleFile = new File(srcDir+"LGBT_DATA.ttl");
+                String testXML = srcDir + "IHB_single.xml";
+                String originalXML = srcDir + "pseudonymized_IHB_data.xml";
+                LgbtDataReader lgbtDataReader=new LgbtDataReader(srcDir,originalXML);
+                FileFolderUtils.stringToFile(lgbtDataReader.getContent(), turtleFile);
                 
-               
-                FileFolderUtils.stringToFile(content, turtleFile);
                 break;
             }
-            
+
             case FIND_VALID_TURTLE: {
                 String fileName = "LocationP625_Corrected_rest_Corrected_2.ttl";
                 String filePrefix = fileName.replace(".ttl", "");
@@ -993,8 +989,7 @@ public class Main implements Constants {
         }
     }
 
-    
-                            /*if ( line.contains("<http://www.wikidata.org/prop/direct/P625>")
+    /*if ( line.contains("<http://www.wikidata.org/prop/direct/P625>")
                                     && line.contains("\"Point(")
                                     && line.contains(")\"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .")
                                     && inCount == 3 && outCount == 3 && pointCount == 1
@@ -1010,7 +1005,7 @@ public class Main implements Constants {
                                 writeFile(wrongFilePath, line + "\n");
 
                             }*/
-     /*String line = "<http://www.wikidata.org/entity/Q25328621> "
+ /*String line = "<http://www.wikidata.org/entity/Q25328621> "
                 + "<http://www.wikidata.org/prop/direct/P625> "
                 + "\"Point(15.306388888889 44.723333333333)\"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .";
         int inCount = StringUtils.countMatches(line, "<");
@@ -1024,32 +1019,30 @@ public class Main implements Constants {
         System.out.println("inCount::" + inCount + " outCount::" + outCount + " pointCount::" + pointCount
                 + " quoteCount::" + quoteCount + " dotCount::" + endCount + " symCount::" + symCount
                 + " bracketCountIn::" + bktCountIn + " bracketCountOut::" + bktCountOut);
-         */
-
-    private static String getPerson(String uri,Map<String, String> attibutes) {
+     */
+    private static String getPerson(String uri, Map<String, String> attibutes) {
         attibutes = getPersonAttributues();
         String content = "";
-         String object = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>";
+        String object = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>";
 
         for (String attibute : attibutes.keySet()) {
             String value = attibutes.get(attibute);
-             String triple ="";
-            if(value.contains("http")){
-               triple = uri + " <http://localhost:9999/" + attibute + "> " +value+ " . " + "\n"; 
+            String triple = "";
+            if (value.contains("http")) {
+                triple = uri + " <http://localhost:9999/" + attibute + "> " + value + " . " + "\n";
+            } else {
+                triple = uri + " <http://localhost:9999/" + attibute + "> " + "\"" + value + "\"^^" + object + " . " + "\n";
+
             }
-            else{
-               triple =  uri + " <http://localhost:9999/" + attibute + "> " +"\"" + value+ "\"^^"+ object + " . " + "\n";
-  
-            }
-            
+
             content += triple;
         }
 
         return content;
 
     }
-    
-     /*triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/id> "+"\"" + id + object + " . " +"\n";
+
+    /*triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/id> "+"\"" + id + object + " . " +"\n";
                     triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/citeAs> " + citeAs  + " . " +"\n";
                     triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/title> "+"\"" + title + object + " . " + "\n";
                     triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/workgroup> "+"\"" + workgroup + object + " . " +"\n";
@@ -1058,10 +1051,9 @@ public class Main implements Constants {
                     triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/point> "+"\"" + point + object + " . " + "\n";
                     triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/certaintyOfLocalisation> "+"\"" + certaintyOfLocalisation + object + " . " + "\n";
                     triple += "<http://localhost:9999/etradis#record_" + index + "> <http://localhost:9999/originalID> "+"\"" + originalID + object + " . " + "\n";
-        */    
-
+     */
     private static Map<String, String> getPersonAttributues() {
-        Map<String, String> attibutes=new HashMap<String,String>();
+        Map<String, String> attibutes = new HashMap<String, String>();
         String id = "2532";
         String citeAs = "<http://heurist.sfb1288.uni-bielefeld.de/heurist/?recID=2532&db=ipaetzold_erste_datenbank>";
         String workgroup = "public";
@@ -1086,4 +1078,21 @@ public class Main implements Constants {
         return attibutes;
 
     }
+    
+    
+                //add type
+                /*Integer length = 2535;
+                String content = "";
+
+                for (Integer index = 1632; index <= length; index++) {
+
+                    Map<String, String> attibutes = new TreeMap<String, String>();
+                    String uri = "<http://localhost:9999/etradis#record_" + index + ">";
+                    String triple = uri + " <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person>" + " . " + "\n";
+                    triple += getPerson(uri, attibutes);
+                    content += triple + "\n";
+                    break;
+                }*/
+
+               
 }
