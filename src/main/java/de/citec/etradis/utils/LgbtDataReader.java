@@ -15,6 +15,7 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.StringReader;
+import static java.lang.System.exit;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -49,13 +50,13 @@ public class LgbtDataReader {
                 Element recordElement = (Element) recordList.item(i);
                 String recordId = recordElement.getElementsByTagName("id").item(0).getTextContent();
                 Record record = new Record(recordElement);
-                String type = record.getAttributes().get("type");
                 //System.out.println("attribute::"+record.getAttributes());
                 //System.out.println("detail attribute::"+record.getDetailAttributes());
                 String uri = "<http://localhost:9999/etradis#record" + recordId + ">";
-                String className = findEtradisClass(type);
+                String className = findEtradisClass(record.getAttributes().get("type"));
                 String mainTriple = getBasicTriple(uri, className);
-                String triple = mainTriple + getBasicTriple(uri, record.getAttributes());
+                String triple = mainTriple + getProperties(uri, record.getAttributes());
+                //relationship
                 content += triple;
             }
         } catch (Exception e) {
@@ -125,7 +126,7 @@ public class LgbtDataReader {
                 String uri = "<http://localhost:9999/etradis#record" + recordId + ">";
                 String className = findEtradisClass(type);
                 String mainTriple = getBasicTriple(uri, className);
-                String triple = mainTriple + getBasicTriple(uri, record.getAttributes());
+                String triple = mainTriple + getProperties(uri, record.getAttributes());
                 str += triple;
                 //System.out.println(triple);
 
@@ -140,21 +141,23 @@ public class LgbtDataReader {
         return uri + " <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/" + className + ">" + " . " + "\n";
     }
 
-    private static String getBasicTriple(String uri, Map<String, String> attibutes) {
+    private static String getProperties(String uri, Map<String, String> attibutes) {
         String content = "";
         String object = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>";
         for (String attibute : attibutes.keySet()) {
             String value = attibutes.get(attibute);
-            String triple = "";
             value = value.replace("\n", " ");
             if (value.contains("http")) {
                 value = value.replace("https", "http");
-                triple = uri + " <http://localhost:9999/" + attibute + "> " + "<" + value + ">" + " . " + "\n";
+                content += uri + " <http://localhost:9999/" + attibute + "> " + "<" + value + ">" + " . " + "\n";
             } else {
-                triple = uri + " <http://localhost:9999/" + attibute + "> " + "\"" + value + "\"^^" + object + " . " + "\n";
-
+                if (attibute.contains("title")) {
+                    content += uri + " "+"<"+"http://www.w3.org/2000/01/rdf-schema#label"+">"+" " + "\"" + value + "\"^^" + object + " . " + "\n";
+                    content += uri + " "+"<"+"http://localhost:9999/" + attibute + "> " + "\"" + value + "\"^^" + object + " . " + "\n";
+                } else {
+                    content += uri + " "+"<"+"http://localhost:9999/" + attibute + "> " + "\"" + value + "\"^^" + object + " . " + "\n";
+                }
             }
-            content += triple;
         }
 
         return content;

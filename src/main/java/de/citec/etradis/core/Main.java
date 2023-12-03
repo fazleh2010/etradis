@@ -94,11 +94,9 @@ public class Main implements Constants {
 
     private static void Tasks(String task, String dataDir) throws IOException {
         switch (task) {
-            //culture artifact 9411294 4 <http://www.wikidata.org/entity/Q90366177> <http://www.wikidata.org/prop/direct/P50> <http://www.wikidata.org
-
             case LGBT_DATA_TRIPLE: {
                 String srcDir = "src/main/resources/";
-                File turtleFile = new File(srcDir+"LGBT_DATA.ttl");
+                File turtleFile = new File(srcDir+"A-LGBT-DATA.ttl");
                 String testXML = srcDir + "IHB_single.xml";
                 String originalXML = srcDir + "pseudonymized_IHB_data.xml";
                 LgbtDataReader lgbtDataReader=new LgbtDataReader(srcDir,originalXML);
@@ -1094,5 +1092,6 @@ public class Main implements Constants {
                     break;
                 }*/
 
-               
+                           //culture artifact 9411294 4 <http://www.wikidata.org/entity/Q90366177> <http://www.wikidata.org/prop/direct/P50> <http://www.wikidata.org
+
 }
